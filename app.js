@@ -9,10 +9,6 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
-// passport configuration
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-
 mongoose
   .connect("mongodb://localhost/art-is-present", { useNewUrlParser: true })
   .then((x) => {
@@ -54,6 +50,71 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
+
+// passport configuration
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const Artist = require("./models/Artist");
+
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser((id, done) => {
+  Artist.findById(id)
+    .then((dbUser) => {
+      done(null, dbUser);
+    })
+    .catch((err) => {
+      done(err);
+    });
+});
+
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+    },
+    (email, password, next) => {
+      User.findOne({ email }, (err, foundUser) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        if (!foundUser) {
+          next(null, false, { message: "Incorrect credentials." });
+          return;
+        }
+        if (!bcrypt.compareSync(password, foundUser.password)) {
+          next(null, false, { message: "Incorrect credentials." });
+          return;
+        }
+        next(null, foundUser);
+      });
+    }
+  )
+);
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 },
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 * 1000,
+    }),
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 const index = require("./routes/index");
 app.use("/", index);
