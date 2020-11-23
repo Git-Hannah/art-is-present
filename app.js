@@ -81,7 +81,7 @@ passport.use(
       passwordField: "password",
     },
     (email, password, next) => {
-      User.findOne({ email }, (err, foundUser) => {
+      Artist.findOne({ email }, (err, foundUser) => {
         if (err) {
           next(err);
           return;

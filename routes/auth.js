@@ -11,10 +11,22 @@ const { deserializeUser } = require("passport");
 
 //routes:
 
-//signup
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
+
+router.get("/login", (req, res) => {
+  res.render("auth/login");
+});
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    passReqToCallback: true,
+  })
+);
 
 router.post("/signup", (req, res, next) => {
   const { email, password } = req.body;
@@ -31,7 +43,6 @@ router.post("/signup", (req, res, next) => {
       return;
     } else {
       // Encrypt the password
-      // const salt = bcrypt.genSaltSync(bcryptSalt);
       const salt = bcrypt.genSaltSync();
       const hash = bcrypt.hashSync(password, salt);
 
@@ -49,6 +60,11 @@ router.post("/signup", (req, res, next) => {
       });
     }
   });
+});
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
 });
 
 module.exports = router;
