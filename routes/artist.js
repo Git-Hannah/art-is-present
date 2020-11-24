@@ -13,18 +13,57 @@ router.get("/add", (req, res, next) => {
 
 router.get("/show", (req, res, next) => {
   Artist.findById(req.session.passport.user).then((artist) => {
-    // console.log("------------artist", artist);
     res.render("artist/show", { artist });
+  });
+});
+
+router.get("/your-products", (req, res, next) => {
+  Product.find({ owner: [req.session.passport.user] }).then((productList) => {
+    // console.log("productList", productList);
+    res.render("artist/products", { productList });
   });
 });
 
 router.get("/edit", (req, res, next) => {
   Artist.findById(req.session.passport.user)
     .then((selectedArtist) => {
-      console.log("edit artist", selectedArtist);
       res.render("artist/edit", { selectedArtist });
     })
     .catch((err) => next(err));
+});
+
+router.post("/edit", uploadCloud.single("avatar"), (req, res, next) => {
+  const { name, city, country, about } = req.body;
+  const avatar = req.file ? req.file.path : "";
+  let editedProfile;
+  if (avatar === "") {
+    editedProfile = { name, city, country, about };
+  } else {
+    editedProfile = {
+      name,
+      city,
+      country,
+      about,
+      avatar,
+    };
+  }
+  Artist.findByIdAndUpdate(req.session.passport.user, editedProfile)
+    .then(() => {
+      res.redirect("show");
+    })
+    .catch((err) => {
+      if (err instanceof mongoose.Error.ValidationError) {
+        res.status(500).render(
+          "artist/edit",
+          { selectedArtist: editedProfile },
+          {
+            errorMessage: err.message,
+          }
+        );
+      } else {
+        next(err);
+      }
+    });
 });
 
 router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
@@ -41,10 +80,24 @@ router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
     country: country,
     about: about,
     avatar: avatar,
-  }).then((dbArtist) => {
-    console.log("profile created", dbArtist);
-    res.redirect("show");
-  });
+  })
+    .then((dbArtist) => {
+      console.log("profile created", dbArtist);
+      res.redirect("show");
+    })
+    .catch((err) => {
+      if (err instanceof mongoose.Error.ValidationError) {
+        res.status(500).render(
+          "artist/add",
+          { selectedArtist: editedProfile },
+          {
+            errorMessage: err.message,
+          }
+        );
+      } else {
+        next(err);
+      }
+    });
 });
 
 module.exports = router;

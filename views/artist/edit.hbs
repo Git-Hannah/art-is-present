@@ -2,7 +2,7 @@
 
 {{#with selectedArtist}}
 
-<form action="/artist/:id/edit" method="POST" enctype="multipart/form-data">
+<form action="/artist/edit" method="POST" enctype="multipart/form-data">
 
   <div>
     <label for="avatar">Add profile picture:</label>
@@ -36,11 +36,10 @@
   <div>
     <button type="submit">Save changes</button>
   </div>
-
 </form>
 
 {{#if errorMessage}}
 <p>{{errorMessage}}</p>
 {{/if}}
 
-{{/with}} --}}
+{{/with}}
