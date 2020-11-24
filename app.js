@@ -120,10 +120,13 @@ const index = require("./routes/index");
 app.use("/", index);
 
 //hortencia's branch(products routing)
-const products = require('./routes/product.routes');
-app.use('/', products);
+const products = require("./routes/product.routes");
+app.use("/", products);
 
 const auth = require("./routes/auth");
 app.use("/auth", auth);
+
+const artist = require("./routes/artist");
+app.use("/artist", artist);
 
 module.exports = app;
