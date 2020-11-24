@@ -11,6 +11,22 @@ router.get("/add", (req, res, next) => {
   res.render("artist/add");
 });
 
+router.get("/show", (req, res, next) => {
+  Artist.findById(req.session.passport.user).then((artist) => {
+    // console.log("------------artist", artist);
+    res.render("artist/show", { artist });
+  });
+});
+
+router.get("/edit", (req, res, next) => {
+  Artist.findById(req.session.passport.user)
+    .then((selectedArtist) => {
+      console.log("edit artist", selectedArtist);
+      res.render("artist/edit", { selectedArtist });
+    })
+    .catch((err) => next(err));
+});
+
 router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
   const { name, city, country, about } = req.body;
   // console.log(req.file.path);
@@ -28,13 +44,6 @@ router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
   }).then((dbArtist) => {
     console.log("profile created", dbArtist);
     res.redirect("show");
-  });
-});
-
-router.get("/show", (req, res, next) => {
-  Artist.findById(req.session.passport.user).then((artist) => {
-    console.log("------------artist", artist);
-    res.render("artist/show", { artist });
   });
 });
 
