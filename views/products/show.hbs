@@ -1,1 +1,17 @@
-show view
+{{#with foundProduct}}
+<div class="slider">
+  {{#each images}}
+  <img src={{this}} alt="">
+  {{/each}}
+</div>
+<div class="infoContainer">
+  <h2>{{name}}</h2>
+  <h3>{{price}}</h3>
+  <h4>{{availability}}</h4>
+  <h4>{{owner}}</h4>
+  {{!-- replace email with artist email, from the session info --}}
+  <a class="Btn" href="mailto:someone@example.com">Contact Artist</a> 
+  <h4>Description:</h4>
+  <p>{{Description}}</p>
+</div>
+{{/with}}

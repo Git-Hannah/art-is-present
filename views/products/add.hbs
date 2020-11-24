@@ -3,12 +3,12 @@
 <form action="/add/product" method="POST" enctype="multipart/form-data">
 
   <label for="name">Name:</label>
-  <input type="text" id="name" name="name" placeholder="Add the name of your product name/service here.">
+  <input type="text" id="name" name="name" placeholder="Add the name of your product name/service here." {{#if name}}value={{name}}{{/if}}>
 
   <br><br>
 
   <label for="price">Price:</label>
-  <input type="text" id="price" name="price" placeholder="Add the price of your product name/service here.">
+  <input type="text" id="price" name="price" placeholder="Add the price of your product name/service here." {{#if price}}value={{price}}{{/if}}>
 
   <br><br>
 
@@ -32,7 +32,7 @@
   <br><br>
 
   <label for="description">Description:</label>
-  <textarea name="description" id="description" cols="30" rows="8" placeholder="Describe your product/service here"></textarea>
+  <textarea name="description" id="description" cols="30" rows="8" placeholder="Describe your product/service here" >{{#if description}}{{description}}{{/if}}</textarea>
 
   <br><br>
 
@@ -42,5 +42,12 @@
 
 
   <br><br>
+
+  {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+  {{/if}}
+
+  <br><br>
   <button type="submit">Add product</button>
 </form>
+
