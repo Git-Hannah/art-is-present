@@ -1,22 +1,21 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const artistSchema = new Schema({
- 
   email: {
     type: String,
-    required: [true, 'Email is required!'],
+    required: [true, "Email is required!"],
     unique: true,
-    match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address.'],
+    match: [/^\S+@\S+\.\S+$/, "Please use a valid email address."],
     lowercase: true,
-    trim: true 
+    trim: true,
   },
   password: {
     type: String,
-    required: [true, 'Password is required!']
+    required: [true, "Password is required!"],
   },
   name: {
     type: String,
-    unique: true
+    unique: true,
   },
   location: {
     city: String,
@@ -24,11 +23,13 @@ const artistSchema = new Schema({
   },
   avatar: String,
   public: [String],
-  products: [{ 
-    type: Schema.Types.ObjectId, 
-    ref: 'Product' }]
+  products: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
 });
 
-const Artist = mongoose.model('Artist', artistSchema);
+const Artist = mongoose.model("Artist", artistSchema);
 module.exports = Artist;
-
