@@ -25,12 +25,12 @@ const productSchema = new Schema({
   },
   owner: [{ 
     type: Schema.Types.ObjectId, 
-    ref: 'Artist' }],
+    ref: 'Artist' 
+  }],
 
   category: {
     type: String,
-    enum: ['Painting', 'Drawing', 'Photography', 'Performance', 'Music'],
-  
+    enum: ['Painting', 'Drawing', 'Photography', 'Performance', 'Music']
   }
 
 });

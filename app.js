@@ -119,6 +119,10 @@ app.use(passport.session());
 const index = require("./routes/index");
 app.use("/", index);
 
+//hortencia's branch(products routing)
+const products = require('./routes/product.routes');
+app.use('/', products);
+
 const auth = require("./routes/auth");
 app.use("/auth", auth);
 
