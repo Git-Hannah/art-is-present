@@ -1,17 +1,35 @@
 {{#with foundProduct}}
-<div class="slider">
-  {{#each images}}
-  <img src={{this}} alt="">
-  {{/each}}
-</div>
-<div class="infoContainer">
-  <h2>{{name}}</h2>
-  <h3>{{price}}</h3>
-  <h4>{{availability}}</h4>
-  <h4>{{owner}}</h4>
-  {{!-- replace email with artist email, from the session info --}}
-  <a class="Btn" href="mailto:someone@example.com">Contact Artist</a> 
-  <h4>Description:</h4>
-  <p>{{Description}}</p>
+<div class="product-details-container">
+
+    <div class="vertical-slider-gallery">
+        {{#each images}}
+        <img src={{this}} alt="">
+        {{/each}}
+    </div>
+
+
+    <div class="horizontal-slider">
+        {{#each images}}
+        <img src={{this}} alt="">
+        {{/each}}
+    </div>
+
+    <div class="infoContainer">
+      <h2>{{name}}</h2>
+      {{/with}}
+
+      <h3>{{{price}}}</h3>
+
+      {{#with foundProduct}}
+
+      <h4>{{availability}}</h4>
+      {{#each owner}}
+      <h3 class="product-name">{{name}}</h3>
+      <a class="Black-Btn" href="mailto:{{email}}">Contact Artist</a> 
+      {{/each}}
+      <h4>Description:</h4>
+      <p>{{description}}</p>
+    </div>
+    
 </div>
 {{/with}}
