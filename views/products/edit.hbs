@@ -9,7 +9,8 @@
   <br><br>
 
   <label for="price">Price:</label>
-  <input type="text" id="price" name="price" placeholder="Add the price of your product name/service here." value={{price}}>
+  <input type="text" id="price" name="price" placeholder="Add the price of your product name/service here."
+    value={{price}}>
 
   <br><br>
 
@@ -17,7 +18,12 @@
 
   <label for="availability">Availability:</label>
   <select name="availability" id="availability">
+<<<<<<< HEAD
       {{{availabilityOptions}}}
+=======
+    <option value="available">available</option>
+    <option value="currently unavailable" selected>currently unavailable</option>
+>>>>>>> master
   </select>
 
   <br><br>
@@ -32,7 +38,8 @@
 {{#with selectedProduct}}
 
   <label for="description">Description:</label>
-  <textarea name="description" id="description" cols="30" rows="8" placeholder="Describe your product/service here" >{{description}}</textarea>
+  <textarea name="description" id="description" cols="30" rows="8"
+    placeholder="Describe your product/service here">{{description}}</textarea>
 
   <br><br>
 

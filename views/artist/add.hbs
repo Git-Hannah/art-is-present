@@ -1,0 +1,38 @@
+<h2>Create your profile</h2>
+
+<form action="/artist/add" method="POST" enctype="multipart/form-data">
+
+  <div>
+    <label for="avatar">Add profile picture:</label>
+    <input type="file" name="avatar" id="avatar" />
+  </div>
+  <br>
+  <div>
+    <label for="name">Artist name</label>
+    <input id="name" type="text" name="name">
+  </div>
+  <br>
+  <div>
+    <h3>Location:</h3>
+    <label for="city">City</label>
+    <input id="city" type="text" name="city">
+    <label for="country">Country</label>
+    <input id="country" type="text" name="country">
+  </div>
+  <br>
+  <label for="about">About you:</label>
+  <textarea name="about" id="about" cols="30" rows="8"
+    placeholder="Tell us a bit about you and your work">{{#if about}}{{about}}{{/if}}</textarea>
+  <br>
+  {{#if errorMessage}}
+  <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
+  <br>
+  <div>
+    <button type="submit">Create profile</button>
+  </div>
+  {{!-- <p class="account-message">
+    Do you already have an account?
+    <a href="login">Login</a>
+  </p> --}}
+</form>
