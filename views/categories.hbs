@@ -1,4 +1,19 @@
-<h2>Categories</h2>
+<div>
+    <h2>{{categoryName}}</h2>
+    <div class="filter">
+        <h3>Price</h3>
+        <form action="/categories/{{categoryName}}" method="POST">
+         
+            <input type="radio" id="lt-20" name="price" value="0-20">
+            <label for="lt-20">Under 20€</label><br>
+            <input type="radio" id="btw-20-and-100" name="price" value="20-100">
+            <label for="btw-20-and-100">20€ to 100€</label><br>
+            <input type="radio" id="morethan-100" name="price" value="100-">
+            <label for="morethan-100">Over 100€</label><br>
+            <button type="submit">Filter</button>
+        </form> 
+    </div>
+</div>
 
 <div>
     {{#each categoryProductList}}
