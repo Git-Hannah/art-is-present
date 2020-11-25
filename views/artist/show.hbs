@@ -1,0 +1,13 @@
+<h2>artist profile</h2>
+
+{{#with artist}}
+<img src={{avatar}} alt="avatar">
+<h3>{{name}}</h3>
+<p>{{city}}, {{country}}</p>
+<h4>About me:</h4>
+<p>{{about}}</p>
+
+{{/with}}
+
+<a href="/artist/edit">Edit profile</a>
+<a href="/artist/your-products">Edit products</a>

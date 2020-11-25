@@ -1,0 +1,45 @@
+<h2>Edit Profile</h2>
+
+{{#with selectedArtist}}
+
+<form action="/artist/edit" method="POST" enctype="multipart/form-data">
+
+  <div>
+    <label for="avatar">Add profile picture:</label>
+    <input type="file" name="avatar" id="avatar" value={{avatar}} />
+  </div>
+
+  <br><br>
+
+  <div>
+    <label for="name">Artist name</label>
+    <input id="name" type="text" name="name" value={{name}}>
+  </div>
+
+  <br>
+  <div>
+    <h3>Location:</h3>
+    <label for="city">City</label>
+    <input id="city" type="text" name="city" value={{city}}>
+    <label for="country">Country</label>
+    <input id="country" type="text" name="country" value={{country}}>
+  </div>
+  <br>
+  <label for="about">About you:</label>
+  <textarea name="about" id="about" cols="30" rows="8"
+    placeholder="Tell us a bit about you and your work">{{#if about}}{{about}}{{/if}}</textarea>
+  <br>
+  {{#if errorMessage}}
+  <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
+  <br>
+  <div>
+    <button type="submit">Save changes</button>
+  </div>
+</form>
+
+{{#if errorMessage}}
+<p>{{errorMessage}}</p>
+{{/if}}
+
+{{/with}}

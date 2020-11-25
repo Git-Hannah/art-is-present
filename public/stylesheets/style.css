@@ -1,13 +1,21 @@
+.product-details-container {
+  display: flex; }
+
+img {
+  border-radius: 8px; }
+
+.Black-Btn {
+  text-decoration: none;
+  background-color: #141414;
+  color: #f0e8e8;
+  width: 100%;
+  margin: 10px; }
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
-
-.topnav {
-  display: flex;
-  justify-items: space-between;
-  width: auto; }
 
 /*# sourceMappingURL=style.css.map */
