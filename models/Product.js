@@ -30,7 +30,12 @@ const productSchema = new Schema({
 
   category: {
     type: String,
-    enum: ['Painting', 'Drawing', 'Photography', 'Performance', 'Music']
+    enum: [
+      'Painting', 
+      'Drawing', 
+      'Photography', 
+      'Performance', 
+      'Music']
   }
 
 });
