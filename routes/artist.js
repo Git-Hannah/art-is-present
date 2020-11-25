@@ -18,8 +18,9 @@ router.get("/show", (req, res, next) => {
 });
 
 router.get("/your-products", (req, res, next) => {
+  console.log("hiiiiiiii");
   Product.find({ owner: [req.session.passport.user] }).then((productList) => {
-    // console.log("productList", productList);
+    console.log("productList", productList);
     res.render("artist/products", { productList });
   });
 });
