@@ -1,0 +1,19 @@
+$whiteText:rgb(240, 232, 232);
+$blackBackgroundBtn: rgb(20, 20, 20);
+
+.product-details-container{
+  display: flex;
+  //flex-wrap: wrap;
+}
+
+img{
+  border-radius: 8px;
+}
+
+.Black-Btn{
+  text-decoration: none;
+  background-color: $blackBackgroundBtn;
+  color: $whiteText;
+  width: 100%;
+  margin: 10px;
+}
