@@ -17,10 +17,24 @@
 
 <div>
     {{#each categoryProductList}}
-        <p>
-            <h2>{{name}}</h2>
-        </p>
-        <a href="/show/{{_id}}/product">{{name}}</a>
+
+        <a href="/show/{{_id}}/product">
+            <div class="product-container">
+                <div class="image-container"><img style="width: 10%" src={{images.[0]}} alt="product-image"></div>
+                <div class="product-details">
+                    <h2>{{name}}</h2>
+
+                     {{#each owner }}
+                   <p> {{ name }}         </p>
+                        {{/each}}
+                   <p > {{ price }} €       </p>
+                   <p> {{ availability }} </p>
+                   
+                </div>
+                    
+                    
+            </div>
+        </a>
     {{/each}}
 
 </div>
