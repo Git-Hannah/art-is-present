@@ -44,7 +44,8 @@ router.post('/edit/:id/product',uploadCloud.array('images'),(req,res,next)=>{
   Product.findByIdAndUpdate(req.params.id,editedProduct,{new:true})
   .then(foundProduct=>{
     const price= new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(foundProduct.price);
-    res.render('products/show',{foundProduct,price, user: req.session.passport.user})
+    const isOwner= req.session.passport.user==foundProduct.owner[0]._id
+    res.render('products/show',{foundProduct,price, isOwner,user: req.session.passport.user})
     })
     .catch(err=>{
       if(err instanceof mongoose.Error.ValidationError){
@@ -101,10 +102,12 @@ router.post("/add/product", uploadCloud.array("images"), (req, res, next) => {
     });
 });
 
-router.post('/delete/:id/product',(req,res,next)=>{
+router.get('/delete/:id/product',(req,res,next)=>{
   Product.findByIdAndDelete(req.params.id)
    .then(()=>{
-     res.render('artist/show',{user:req.session.passport.user}) //redirect to artist profile
+     //res.render('artist/show',{user:req.session.passport.user}) //redirect to artist profile
+     res.redirect('/artist/show') //redirect to artist profile
+     
      console.log('product deleted');
    })
 })
