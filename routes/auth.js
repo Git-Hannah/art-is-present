@@ -12,11 +12,11 @@ const { deserializeUser } = require("passport");
 //routes:
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+  res.render("auth/signup", { owner: req.session.passport.user });
 });
 
 router.get("/login", (req, res) => {
-  res.render("auth/login");
+  res.render("auth/login", { owner: req.session.passport.user });
 });
 
 router.post(
@@ -33,13 +33,17 @@ router.post("/signup", (req, res, next) => {
 
   if (!email || !password) {
     res.render("/auth/signup", {
+      owner: req.session.passport.user,
       errorMessage: "Email and password are mandatory",
     });
     return;
   }
   Artist.findOne({ email }).then((artistEmail) => {
     if (artistEmail !== null) {
-      res.render("auth/signup", { message: "Email already exists" });
+      res.render("auth/signup", {
+        owner: req.session.passport.user,
+        message: "Email already exists",
+      });
       return;
     } else {
       // Encrypt the password
