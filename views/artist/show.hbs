@@ -16,6 +16,7 @@
 
 <section class="artist-profile-products">
   <h3>Your products:</h3>
+  <a href="/add/product">Add product</a>
   {{#each productList}}
   {{!-- {{#each images}} --}}
   <a href="/show/{{_id}}/product"><img src={{images.[0]}} alt="product-image"></a>
@@ -29,5 +30,4 @@
   <br>
   {{/each}}
 
-  <a href="/add/product">Add product</a>
 </section>

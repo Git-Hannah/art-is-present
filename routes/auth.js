@@ -12,11 +12,11 @@ const { deserializeUser } = require("passport");
 //routes:
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup", { owner: req.session.passport.user });
+  res.render("auth/signup", { user: req.session.passport.user });
 });
 
 router.get("/login", (req, res) => {
-  res.render("auth/login", { owner: req.session.passport.user });
+  res.render("auth/login", { user: req.session.passport.user });
 });
 
 router.post(
@@ -35,14 +35,15 @@ router.post("/signup", (req, res, next) => {
     res.render("/auth/signup", {
       owner: req.session.passport.user,
       errorMessage: "Email and password are mandatory",
+      user: req.session.passport.user,
     });
     return;
   }
   Artist.findOne({ email }).then((artistEmail) => {
     if (artistEmail !== null) {
       res.render("auth/signup", {
-        owner: req.session.passport.user,
         message: "Email already exists",
+        user: req.session.passport.user,
       });
       return;
     } else {
