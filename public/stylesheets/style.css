@@ -1,48 +1,84 @@
 .product-details-container {
-  display: flex; }
+  display: flex;
+}
 
 img {
-  border-radius: 8px; }
+  border-radius: 8px;
+}
 
 .Black-Btn {
   text-decoration: none;
   background-color: #141414;
   color: #f0e8e8;
   width: 100%;
-  margin: 10px; }
+  margin: 10px;
+}
 
 .artist-profile {
-  display: flex; }
+  display: flex;
+  align-items: center;
+  background-color: #2f303a;
+  padding: 3%;
+}
 
 .avatar-img {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  border: 1px solid red; }
+  background-color: white;
+}
+
+.about-me {
+  margin-left: 6vw;
+}
+
+.about-me h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.about-txt {
+  font-style: italic;
+}
+
+.section-break {
+  margin: 0 20px 0;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #2f303a;
+  color: #ffffff;
+}
 
 a {
-  color: #2b0daf; }
+  color: #2b0daf;
+}
 
 .topnav {
   display: flex;
   width: 100%;
   height: auto;
   justify-content: space-around;
-  background-color: lightgreen; }
+  background-color: lightgreen;
+}
 
 .nav-categories {
   display: flex;
   justify-content: space-evenly;
-  height: 30px; }
+  height: 30px;
+}
 
 .login-signup {
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  background-color: lightblue; }
+  background-color: lightblue;
+}
 
 /*# sourceMappingURL=style.css.map */

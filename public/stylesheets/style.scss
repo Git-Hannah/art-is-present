@@ -1,9 +1,13 @@
 @import "./showProductView";
 @import "./showArtistView";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
