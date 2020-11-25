@@ -7,21 +7,33 @@
   <title>Art is Present</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
-   <nav class="topnav">
+  <header>
+
+   <div class="topnav">
+
      <a class="logo" href="/index"><img src="#" alt="Logo"></a>
      <input type="text" placeholder="Search presents">
-  </nav> 
-<header class="nav-categories">
-  <a href="#">Graphics</a>
-  <a href="#">Sculpture</a>
-  <a href="#">Photography</a>
-  <a href="#">Textiles</a>
-  <a href="#">Film</a>
-  <a href="#">Writing</a>
-  <a href="#">Theater</a>
-  <a href="#">Music</a>
 
+     <div>
+       {{#if user}}
+        <a href="/auth/logout">Log out</a>
+      {{else}}
+        <a href="auth/signup">sign up</a>
+      {{/if}}
+    </div>
+
+  </div> 
+
+  <nav class="div-categories">
+    <a href="/categories">Painting</a>
+    <a href="/categories">Drawing</a>
+    <a href="/categories">Photography</a>
+    <a href="/categories">Performance</a>
+    <a href="/categories">Music</a>
+
+  </nav>
 </header>
 
   {{{body}}}

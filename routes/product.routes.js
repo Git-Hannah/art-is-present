@@ -26,7 +26,7 @@ router.get("/edit/:id/product", (req, res, next) => {
         categoryOptions+=`<option value="${el}" ${selectedCategory}>${el}</option>`;
       })
 
-      res.render('products/edit',{selectedProduct,availabilityOptions,categoryOptions});
+      res.render('products/edit',{selectedProduct,availabilityOptions,categoryOptions, user: req.session.passport.user});
     })
     .catch(err=>next(err))
 }); 
@@ -44,11 +44,11 @@ router.post('/edit/:id/product',uploadCloud.array('images'),(req,res,next)=>{
   Product.findByIdAndUpdate(req.params.id,editedProduct,{new:true})
   .then(foundProduct=>{
     const price= new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(foundProduct.price);
-    res.render('products/show',{foundProduct,price})
+    res.render('products/show',{foundProduct,price, user: req.session.passport.user})
     })
     .catch(err=>{
       if(err instanceof mongoose.Error.ValidationError){
-        res.status(500).render('products/edit',{selectedProduct:editedProduct},{
+        res.status(500).render('products/edit',{selectedProduct:editedProduct, user: req.session.passport.user},{
           errorMessage: err.message});
       }else{
         next(err);
@@ -60,14 +60,14 @@ router.get('/show/:id/product',(req,res,next)=>{
   Product.findById(req.params.id).populate('owner')
     .then(foundProduct=>{
       const price= new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(foundProduct.price);
-      res.render('products/show',{foundProduct,price})
+      res.render('products/show',{foundProduct,price, user: req.session.passport.user})
 
     })
     .catch((err) => next(err));
 });
 
 router.get("/add/product", (req, res, next) => {
-  res.render("products/add");
+  res.render("products/add", {user: req.session.passport.user});
 });
 
 router.post("/add/product", uploadCloud.array("images"), (req, res, next) => {
@@ -88,6 +88,7 @@ router.post("/add/product", uploadCloud.array("images"), (req, res, next) => {
       if (err instanceof mongoose.Error.ValidationError) {
         res.status(500).render("products/add", {
           errorMessage: err.message,
+          user: req.session.passport.user
         });
         //console.log('hi')
       } else {

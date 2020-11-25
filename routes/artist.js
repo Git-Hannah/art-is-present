@@ -8,12 +8,12 @@ const { uploadCloud, cloudinary } = require("../configs/cloudinary.config");
 
 //routes
 router.get("/add", (req, res, next) => {
-  res.render("artist/add");
+  res.render("artist/add", {user: req.session.passport.user});
 });
 
 router.get("/show", (req, res, next) => {
   Artist.findById(req.session.passport.user).then((artist) => {
-    res.render("artist/show", { artist });
+    res.render("artist/show", { artist, user: req.session.passport.user });
   });
 });
 
@@ -21,14 +21,14 @@ router.get("/your-products", (req, res, next) => {
   console.log("hiiiiiiii");
   Product.find({ owner: [req.session.passport.user] }).then((productList) => {
     console.log("productList", productList);
-    res.render("artist/products", { productList });
+    res.render("artist/products", { productList, user: req.session.passport.user});
   });
 });
 
 router.get("/edit", (req, res, next) => {
   Artist.findById(req.session.passport.user)
     .then((selectedArtist) => {
-      res.render("artist/edit", { selectedArtist });
+      res.render("artist/edit", { selectedArtist, user: req.session.passport.user });
     })
     .catch((err) => next(err));
 });
@@ -56,7 +56,7 @@ router.post("/edit", uploadCloud.single("avatar"), (req, res, next) => {
       if (err instanceof mongoose.Error.ValidationError) {
         res.status(500).render(
           "artist/edit",
-          { selectedArtist: editedProfile },
+          { selectedArtist: editedProfile, user: req.session.passport.user },
           {
             errorMessage: err.message,
           }
@@ -90,7 +90,7 @@ router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
       if (err instanceof mongoose.Error.ValidationError) {
         res.status(500).render(
           "artist/add",
-          { selectedArtist: editedProfile },
+          { selectedArtist: editedProfile, user: req.session.passport.user },
           {
             errorMessage: err.message,
           }
