@@ -22,12 +22,12 @@
         <div>
           {{#if user}}
           <a class="logout" href="/auth/logout">Log out</a>
-          <a href="/artist/show">Your profile</a>
-
-          {{else}}
-          <a href="auth/signup">Create artist profile</a>
-          {{/if}}
+          <a class="your-profile" href="/artist/show">Your profile</a>
         </div>
+
+        {{else}}
+        <a class="signup" href="auth/signup">Create artist profile</a>
+        {{/if}}
       </div>
       {{!-- <div class="bottom-header"> --}}
       <nav class="categories">

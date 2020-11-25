@@ -25,6 +25,7 @@ header {
 .top-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .top-header input {
@@ -36,11 +37,20 @@ header {
   padding-left: 15px;
 }
 
-.logout {
+.logout,
+.your-profile,
+.signup {
   font-size: 18px;
+  margin: 0 1em 0;
 }
 
+.signup:hover {
+  border-bottom: 0.5px solid white;
+}
 .logout:hover {
+  border-bottom: 0.5px solid white;
+}
+.your-profile:hover {
   border-bottom: 0.5px solid white;
 }
 
@@ -49,7 +59,7 @@ header {
   display: flex;
   justify-content: center;
   margin: 3% 0 0;
-  font-size: 15px;
+  // font-size: 15px;
 }
 
 .categories li {
@@ -67,11 +77,6 @@ header {
 .categories a:hover {
   color: #292a33;
 }
-
-//  {
-//   font-size: 15px;
-//   // text-decoration: underline;
-// }
 
 a {
   text-decoration: none;
@@ -142,8 +147,7 @@ a {
   margin: 0 50px 0;
 }
 
-//products section
-
+//vesna, products section
 .artist-profile-products {
   padding: 3%;
 }

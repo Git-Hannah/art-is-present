@@ -20,7 +20,8 @@ header {
 
 .top-header {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center; }
 
 .top-header input {
   border: none;
@@ -30,18 +31,26 @@ header {
   font-size: 18px;
   padding-left: 15px; }
 
-.logout {
-  font-size: 18px; }
+.logout,
+.your-profile,
+.signup {
+  font-size: 18px;
+  margin: 0 1em 0; }
+
+.signup:hover {
+  border-bottom: 0.5px solid white; }
 
 .logout:hover {
+  border-bottom: 0.5px solid white; }
+
+.your-profile:hover {
   border-bottom: 0.5px solid white; }
 
 .categories ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 3% 0 0;
-  font-size: 15px; }
+  margin: 3% 0 0; }
 
 .categories li {
   margin-right: 1%;
