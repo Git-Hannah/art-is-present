@@ -15,30 +15,42 @@
 
 <body>
   <header>
-
-    <div class="topnav">
-
-      <a class="logo" href="/index"><img src="#" alt="Logo"></a>
-      <input type="text" placeholder="Search presents">
-
-      <div>
-        {{#if user}}
-        <a href="/auth/logout">Log out</a>
-        {{else}}
-        <a href="auth/signup">sign up</a>
-        {{/if}}
+    <div class="header-wrapper">
+      <div class="top-header">
+        <a class="logo" href="/index"><img src="#" alt="Logo"></a>
+        <input type="text" placeholder="Search for presents">
+        <div>
+          {{#if user}}
+          <a class="logout" href="/auth/logout">Log out</a>
+          {{else}}
+          <a href="auth/signup">sign up</a>
+          {{/if}}
+        </div>
       </div>
+      {{!-- <div class="bottom-header"> --}}
+      <nav class="categories">
+        <ul>
+          <li>
+            <a href="/categories/Painting">Painting</a>
+          </li>
+          <li>
+            <a href="/categories/Drawing">Drawing</a>
+          </li>
+          <li>
+            <a href="/categories/Photography">Photography</a>
+          </li>
+          <li>
+            <a href="/categories/Performance">Performance</a>
+          </li>
+          <li>
+            <a href="/categories/Music">Music</a></li>
+        </ul>
+      </nav>
+      {{!-- </div> --}}
 
     </div>
 
-    <nav class="div-categories">
-      <a href="/categories/Painting">Painting</a>
-      <a href="/categories/Drawing">Drawing</a>
-      <a href="/categories/Photography">Photography</a>
-      <a href="/categories/Performance">Performance</a>
-      <a href="/categories/Music">Music</a>
 
-    </nav>
   </header>
 
   {{{body}}}
