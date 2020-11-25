@@ -1,13 +1,15 @@
-<h2>artist profile</h2>
-
 {{#with artist}}
-<img src={{avatar}} alt="avatar">
-<h3>{{name}}</h3>
-<p>{{city}}, {{country}}</p>
-<h4>About me:</h4>
-<p>{{about}}</p>
-
+<section class="artist-profile">
+  <div class="avatar"><img src={{avatar}} alt="avatar">
+  </div>
+  <div>
+    <h3>{{name}}</h3>
+    <p>{{city}}, {{country}}</p>
+    <h4>About me:</h4>
+    <p>{{about}}</p>
+  </div>
+  <a href="/artist/edit">Edit profile</a>
+  <a href="/artist/your-products">Edit products</a>
+  <a href="/auth/login">Log out</a>
+</section>
 {{/with}}
-
-<a href="/artist/edit">Edit profile</a>
-<a href="/artist/your-products">Edit products</a>

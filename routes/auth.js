@@ -22,7 +22,7 @@ router.get("/login", (req, res) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/artist/show",
     failureRedirect: "/login",
     passReqToCallback: true,
   })
@@ -48,13 +48,13 @@ router.post("/signup", (req, res, next) => {
 
       Artist.create({ email: email, password: hash }).then((dbArtist) => {
         //login with passport
-        console.log("dbartist", dbArtist);
+        // console.log("dbartist", dbArtist);
         req.login(dbArtist, (err) => {
           if (err) {
             console.log("error in signup - creating artist", err);
             next(err);
           } else {
-            res.redirect("/");
+            res.redirect("/artist/add");
           }
         });
       });
@@ -64,7 +64,7 @@ router.post("/signup", (req, res, next) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/auth/signup");
+  res.redirect("/auth/login");
 });
 
 module.exports = router;
