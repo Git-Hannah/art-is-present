@@ -17,9 +17,15 @@ const artistSchema = new Schema({
     type: String,
     unique: true,
   },
-  location: {
-    city: String,
-    country: String,
+  about: {
+    type: String,
+  },
+  city: {
+    type: String,
+    // country: String,
+  },
+  country: {
+    type: String,
   },
   avatar: String,
   public: [String],
