@@ -1,47 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Art is Present</title>
+
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,100;1,300&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
   <header>
+    <div class="header-wrapper">
+      <div class="top-header">
+        <a class="logo" href="/index"><img src="#" alt="Logo"></a>
+        <input type="text" placeholder="Search for presents">
+        <div>
+          {{#if user}}
+          <a class="logout" href="/auth/logout">Log out</a>
+          <a href="/artist/show">Your profile</a>
 
-   <div class="topnav">
+          {{else}}
+          <a href="auth/signup">Create artist profile</a>
+          {{/if}}
+        </div>
+      </div>
+      {{!-- <div class="bottom-header"> --}}
+      <nav class="categories">
+        <ul>
+          <li>
+            <a href="/categories/Painting">Painting</a>
+          </li>
+          <li>
+            <a href="/categories/Drawing">Drawing</a>
+          </li>
+          <li>
+            <a href="/categories/Photography">Photography</a>
+          </li>
+          <li>
+            <a href="/categories/Performance">Performance</a>
+          </li>
+          <li>
+            <a href="/categories/Music">Music</a></li>
+        </ul>
+      </nav>
+      {{!-- </div> --}}
+      {{!-- 
+      <div class="topnav">
 
-     <a class="logo" href="/"><img src="#" alt="Logo"></a>
-     <input type="text" placeholder="Search presents">
+        <a class="logo" href="/"><img src="#" alt="Logo"></a>
+        <input type="text" placeholder="Search presents">
 
-     <div>
-       {{#if user}}
-        <a href="/auth/logout">Log out</a>
-        <a href="/artist/show">Your profile</a>
-      {{else}}
-        <a href="auth/signup">Create an profile</a>
-      {{/if}}
-    </div>
+        <div>
+          {{#if user}}
+          <a href="/auth/logout">Log out</a>
+          <a href="/artist/show">Your profile</a>
+          {{else}}
+          <a href="auth/signup">Create an profile</a>
+          {{/if}}
+        </div>
+ --}}
 
-  </div> 
-
-  <nav class="div-categories">
-    <a href="/categories/Painting">Painting</a>
-    <a href="/categories/Drawing">Drawing</a>
-    <a href="/categories/Photography">Photography</a>
-    <a href="/categories/Performance">Performance</a>
-    <a href="/categories/Music">Music</a>
-
-  </nav>
-</header>
+  </header>
 
   {{{body}}}
 
-<footer>
-  <h6>Made by HortenciaVesnaHannah</h6>
-</footer>
+  <footer>
+    <h6>Made by HortenciaVesnaHannah</h6>
+  </footer>
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>
