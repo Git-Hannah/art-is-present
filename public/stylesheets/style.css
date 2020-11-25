@@ -1,84 +1,93 @@
 .product-details-container {
-  display: flex;
-}
+  display: flex; }
 
 img {
-  border-radius: 8px;
-}
+  border-radius: 8px; }
 
 .Black-Btn {
   text-decoration: none;
   background-color: #141414;
   color: #f0e8e8;
   width: 100%;
-  margin: 10px;
-}
-
-.artist-profile {
-  display: flex;
-  align-items: center;
-  background-color: #2f303a;
-  padding: 3%;
-}
-
-.avatar-img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background-color: white;
-}
-
-.about-me {
-  margin-left: 6vw;
-}
-
-.about-me h1 {
-  font-size: 50px;
-  margin: 0;
-}
-
-.about-txt {
-  font-style: italic;
-}
-
-.section-break {
-  margin: 0 20px 0;
-}
+  margin: 10px; }
 
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #2f303a;
-  color: #ffffff;
-}
+  color: #ffffff; }
 
 a {
-  color: #2b0daf;
-}
+  text-decoration: none; }
 
 .topnav {
   display: flex;
   width: 100%;
   height: auto;
   justify-content: space-around;
-  background-color: lightgreen;
-}
+  background-color: lightgreen; }
 
 .nav-categories {
   display: flex;
   justify-content: space-evenly;
-  height: 30px;
-}
+  height: 30px; }
 
 .login-signup {
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  background-color: lightblue;
-}
+  background-color: lightblue; }
+
+/*# sourceMappingURL=style.css.map */
+.artist-profile {
+  display: flex;
+  align-items: center;
+  background-color: #2f303a;
+  padding: 3%; }
+
+.avatar-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: white; }
+
+.about-me {
+  margin-left: 6vw; }
+
+.about-me h1 {
+  font-size: 50px;
+  margin: 0; }
+
+.location {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 0;
+  font-stretch: 15%; }
+
+.pin-img {
+  margin-right: 5px; }
+
+.about-txt {
+  font-style: italic;
+  font-size: 20px; }
+
+.edit-profile-btn {
+  background-color: #f5a288;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  font-stretch: expanded;
+  padding: 0.3em 2em;
+  border-radius: 50px; }
+
+.edit-profile-btn:hover {
+  background-color: #ee653b; }
+
+.section-break {
+  margin: 0 50px 0; }
 
 /*# sourceMappingURL=style.css.map */
