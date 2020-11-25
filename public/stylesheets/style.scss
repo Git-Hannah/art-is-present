@@ -37,13 +37,11 @@ header {
 }
 
 .logout {
-  // border-bottom: 0.5px solid white;
   font-size: 18px;
 }
 
 .logout:hover {
   border-bottom: 0.5px solid white;
-  // color: #f5a288;
 }
 
 .categories ul {
@@ -142,4 +140,10 @@ a {
 
 .section-break {
   margin: 0 50px 0;
+}
+
+//products section
+
+.artist-profile-products {
+  padding: 3%;
 }
