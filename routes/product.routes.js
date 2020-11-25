@@ -59,8 +59,10 @@ router.post('/edit/:id/product',uploadCloud.array('images'),(req,res,next)=>{
 router.get('/show/:id/product',(req,res,next)=>{
   Product.findById(req.params.id).populate('owner')
     .then(foundProduct=>{
+      //console.log(req.session.passport.user==foundProduct.owner[0]._id)
+      const isOwner= req.session.passport.user==foundProduct.owner[0]._id
       const price= new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(foundProduct.price);
-      res.render('products/show',{foundProduct,price, user: req.session.passport.user})
+      res.render('products/show',{foundProduct,price, isOwner, user: req.session.passport.user})
 
     })
     .catch((err) => next(err));
@@ -79,8 +81,10 @@ router.post("/add/product", uploadCloud.array("images"), (req, res, next) => {
   
 
   Product.create({name,price,availability,category,description,images,owner})
-    .then(()=>{
-      //res.render('products/show',{foundProduct={name,price,availability,description,category,owner}})
+    .then((newProduct)=>{
+      //const isOwner= owner===newProduct.owner
+      //res.render('products/show',{foundProduct:newProduct,isOwner})
+      res.redirect(`/show/${newProduct._id}/product`)
       console.log('product added');
       return;
     })
@@ -100,7 +104,7 @@ router.post("/add/product", uploadCloud.array("images"), (req, res, next) => {
 router.post('/delete/:id/product',(req,res,next)=>{
   Product.findByIdAndDelete(req.params.id)
    .then(()=>{
-     //res.render() //redirect to artist profile
+     res.render('artist/show',{user:req.session.passport.user}) //redirect to artist profile
      console.log('product deleted');
    })
 })
