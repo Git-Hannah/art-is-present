@@ -22,8 +22,10 @@
         <div>
           {{#if user}}
           <a class="logout" href="/auth/logout">Log out</a>
+          <a href="/artist/show">Your profile</a>
+
           {{else}}
-          <a href="auth/signup">sign up</a>
+          <a href="auth/signup">Create artist profile</a>
           {{/if}}
         </div>
       </div>
@@ -47,9 +49,21 @@
         </ul>
       </nav>
       {{!-- </div> --}}
+      {{!-- 
+      <div class="topnav">
 
-    </div>
+        <a class="logo" href="/"><img src="#" alt="Logo"></a>
+        <input type="text" placeholder="Search presents">
 
+        <div>
+          {{#if user}}
+          <a href="/auth/logout">Log out</a>
+          <a href="/artist/show">Your profile</a>
+          {{else}}
+          <a href="auth/signup">Create an profile</a>
+          {{/if}}
+        </div>
+ --}}
 
   </header>
 
