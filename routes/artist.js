@@ -8,27 +8,43 @@ const { uploadCloud, cloudinary } = require("../configs/cloudinary.config");
 
 //routes
 router.get("/add", (req, res, next) => {
-  res.render("artist/add", {user: req.session.passport.user});
+  res.render("artist/add", { user: req.session.passport.user });
 });
 
 router.get("/show", (req, res, next) => {
   Artist.findById(req.session.passport.user).then((artist) => {
-    res.render("artist/show", { artist, user: req.session.passport.user });
+    Product.find({ owner: { $in: req.session.passport.user } })
+      .then((productList) => {
+        console.log("productList", productList);
+        res.render("artist/show", {
+          productList,
+          artist,
+          user: req.session.passport.user,
+        });
+      })
+      .catch((err) => {
+        console.log("error from artist profile", err);
+        next(err);
+      });
   });
 });
 
-router.get("/your-products", (req, res, next) => {
-  console.log("hiiiiiiii");
-  Product.find({ owner: [req.session.passport.user] }).then((productList) => {
-    console.log("productList", productList);
-    res.render("artist/products", { productList, user: req.session.passport.user});
-  });
-});
+// router.get("/your-products", (req, res, next) => {
+//   Product.find({ owner: { $in: req.session.passport.user } }).then(
+//     (productList) => {
+//       console.log("productList", productList);
+//       res.render("artist/products", { productList });
+//     }
+//   );
+// });
 
 router.get("/edit", (req, res, next) => {
   Artist.findById(req.session.passport.user)
     .then((selectedArtist) => {
-      res.render("artist/edit", { selectedArtist, user: req.session.passport.user });
+      res.render("artist/edit", {
+        selectedArtist,
+        user: req.session.passport.user,
+      });
     })
     .catch((err) => next(err));
 });
