@@ -35,8 +35,9 @@
 {{/with}}
 
 {{#if isOwner}}
-
-<a href="/edit/id/product">Edit</a>
-<a href="/delete/id/product">Delete</a>
+{{#with foundProduct}}
+<a href="/edit/{{_id}}/product">Edit</a>
+<a href="/delete/{{_id}}/product">Delete</a>
+{{/with}}
 
 {{/if}}
