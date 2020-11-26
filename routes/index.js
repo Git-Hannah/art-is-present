@@ -5,22 +5,16 @@ const Product = require("../models/Product");
 /* GET home page */
 router.get("/", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
-
   res.render("index", { user });
 });
 
 router.get("/categories/:categoryName", (req, res, next) => {
   const categoryName = req.params.categoryName;
-  const user = req.session.passport ? req.session.passport.user : undefined;
-
   Product.find({ category: categoryName })
     .populate("owner")
     .then((categoryProductList) => {
-      res.render("categories", {
-        categoryProductList,
-        categoryName,
-        user,
-      });
+      const user = req.session.passport ? req.session.passport.user : undefined;
+      res.render("categories", { categoryProductList, categoryName, user });
     })
     .catch((err) => console.log(err));
 });
