@@ -17,14 +17,16 @@ footer {
   height: 9vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 0; }
+  align-items: center; }
 
 h6 {
   margin: 0; }
 
 input {
   outline: none; }
+
+button {
+  cursor: pointer; }
 
 .header-wrapper {
   display: flex;
@@ -243,6 +245,9 @@ a {
 .artist-profile-wrapper h2 {
   text-align: center; }
 
+.signup-wrapper h2 {
+  text-align: center; }
+
 .edit-form,
 .add-product-form,
 .add-profile-form,
@@ -436,5 +441,14 @@ a {
 
 .select-css option {
   font-weight: normal; }
+
+.account-message {
+  text-align: center; }
+
+.account-message a {
+  color: #f5a288; }
+
+.account-message a:hover {
+  text-decoration: underline; }
 
 /*# sourceMappingURL=style.css.map */

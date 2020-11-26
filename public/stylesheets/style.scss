@@ -32,6 +32,10 @@ input {
   outline: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .header-wrapper {
   display: flex;
   flex-direction: column;
@@ -297,6 +301,10 @@ a {
   text-align: center;
 }
 
+.signup-wrapper h2 {
+  text-align: center;
+}
+
 .edit-form,
 .add-product-form,
 .add-profile-form,
@@ -521,4 +529,16 @@ a {
 }
 .select-css option {
   font-weight: normal;
+}
+
+.account-message {
+  text-align: center;
+}
+
+.account-message a {
+  color: #f5a288;
+}
+
+.account-message a:hover {
+  text-decoration: underline;
 }
