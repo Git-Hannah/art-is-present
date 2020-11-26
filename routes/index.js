@@ -66,7 +66,7 @@ router.post('/categories/:categoryName', (req, res, next) => {
 router.post('/search/results',(req, res, next)=>{
   console.log(req.body.query)
   const query=req.body.query;
-  Product.find({name:query})
+  Product.find({name:query})//change the query to search for products which name or description contain the string in the search bar
     .then(productList=>{
       //console.log(productList)
       res.render('all-categories',{productList,user: req.session.passport.user})
