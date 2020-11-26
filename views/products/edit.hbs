@@ -1,49 +1,50 @@
-{{#with selectedProduct}}
-<h2>Edit Product</h2>
-
-<form action="/edit/{{_id}}/product" method="POST" enctype="multipart/form-data">
-
-  <label for="name">Product title:</label>
-  <input type="text" id="name" name="name" placeholder="Add the name of your product name/service here." value={{name}}>
-
-  <br><br>
-
-  <label for="price">Price:</label>
-  <input type="text" id="price" name="price" placeholder="Add the price of your product name/service here."
-    value={{price}}>
-
-  <br><br>
-
-  {{/with}}
-
-  <label for="availability">Availability:</label>
-  <select name="availability" id="availability">
-    {{{availabilityOptions}}}
-  </select>
-
-  <br><br>
-
-  <label for="category">Category:</label>
-  <select name="category" id="availability">
-    {{{categoryOptions}}}
-  </select>
-
-  <br><br>
+<section class="add-product-wrapper">
 
   {{#with selectedProduct}}
+  <h2>Edit Product</h2>
 
-  <label for="description">Description:</label>
-  <textarea name="description" id="description" cols="30" rows="8"
-    placeholder="Describe your product/service here">{{description}}</textarea>
+  <form class="add-product-form" action="/edit/{{_id}}/product" method="POST" enctype="multipart/form-data">
+    <div class="product-name">
+      <label for="name">Product title:</label>
+      <input type="text" id="name" name="name" placeholder="Add the name of your product name/service here."
+        value={{name}}>
+    </div>
+    <div class="product-price">
+      <label for="price">Price:</label>
+      <input type="text" id="price" name="price" placeholder="Add the price of your product name/service here."
+        value={{price}}>
+      {{/with}}
+    </div>
 
-  <br><br>
+    <div class="product-availability">
+      <label for="availability">Availability:</label>
+      <select class="select-css" name="availability" id="availability">
+        {{{availabilityOptions}}}
+      </select>
+    </div>
 
-  <label for="images">Add images:</label>
-  <input type="file" multiple='multiple' name="images" id="images" value={{images}} />
+    <div class="product-category">
+      <label for="category">Category:</label>
+      <select class="select-css" name="category" id="availability">
+        {{{categoryOptions}}}
+      </select>
+    </div>
+
+    {{#with selectedProduct}}
+
+    <div class="product-description">
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" cols="30" rows="8"
+        placeholder="Describe your product/service here">{{description}}</textarea>
+    </div>
+
+    <div class="add-productimg">
+      <label for="images">Add images:</label>
+      <input type="file" multiple='multiple' name="images" id="images" value={{images}} />
+    </div>
 
 
-  <br><br>
-  <button type="submit">Save changes</button>
-</form>
+    <button class="add-product-btn" type="submit">Save changes</button>
+  </form>
 
-{{/with}}
+  {{/with}}

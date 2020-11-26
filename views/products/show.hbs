@@ -15,22 +15,24 @@
     </div>
 
     <div class="infoContainer">
-      <h2>{{name}}</h2>
-      {{/with}}
+        <h2>{{name}}</h2>
+        {{/with}}
 
-      <h3>{{{price}}}</h3>
+        <h3>{{{price}}}</h3>
 
-      {{#with foundProduct}}
+        {{#with foundProduct}}
 
-      <h4>{{availability}}</h4>
-      {{#each owner}}
-      <a href="/artist/show/{{_id}}"><h3 class="artist-name">{{name}}</h3></a>
-      <a class="Black-Btn" href="mailto:{{email}}">Contact Artist</a> 
-      {{/each}}
-      <h4>Description:</h4>
-      <p>{{description}}</p>
+        <h4>{{availability}}</h4>
+        {{#each owner}}
+        <a href="/artist/show/{{_id}}">
+            <h3 class="artist-name">{{name}}</h3>
+        </a>
+        <a class="Black-Btn" href="mailto:{{email}}">Contact Artist</a>
+        {{/each}}
+        <h4>Description:</h4>
+        <p>{{description}}</p>
     </div>
-    
+
 </div>
 {{/with}}
 
