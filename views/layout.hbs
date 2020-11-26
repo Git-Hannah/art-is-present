@@ -18,15 +18,18 @@
     <div class="header-wrapper">
       <div class="top-header">
         <img class="logo" src="/images/logo.png" alt="logo">
-        <input type="text" placeholder="Search for presents">
+        <form action="/search/results" method="post">
+          <input type="text" name="query" placeholder="Search presents">
+          <button type='submit'><img style="width:10%;" src="../public/images/logo present.jpg" alt="magnifying glass"></button>
+        </form>
         <div>
           {{#if user}}
           <a class="logout" href="/auth/logout">Log out</a>
           <a class="your-profile" href="/artist/show">Profile</a>
 
           {{else}}
-          <a class="signup" href="auth/signup">Create artist profile</a>
-          <a class="signup" href="auth/login">Log in</a>
+          <a class="signup" href="/auth/signup">Create artist profile</a>
+          <a class="signup" href="/auth/login">Log in</a>
 
 
           {{/if}}

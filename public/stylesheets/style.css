@@ -147,7 +147,7 @@ a {
   max-width: 1024px;
   margin: 0 auto;
   padding: 22px;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 
 .product-item {
   max-height: 100%;

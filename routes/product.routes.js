@@ -8,16 +8,16 @@ const { uploadCloud, cloudinary } = require("../configs/cloudinary.config");
 router.get("/edit/:id/product", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
   Product.findById(req.params.id)
-    .then((selectedProduct) => {
-      console.log(selectedProduct);
-      let selectedAvailability = "";
-      let availabilityOptions = "";
-      const availabilityArr = ["available", "currently unavailable"];
-      availabilityArr.forEach((el) => {
-        selectedAvailability =
-          el === selectedProduct.availability ? "selected" : "";
-        availabilityOptions += `<option value="${el}" ${selectedAvailability}>${el}</option>`;
-      });
+    .then(selectedProduct=>{
+      //console.log(selectedProduct);
+      let selectedAvailability='';
+      let availabilityOptions='';
+      const availabilityArr=['available','currently unavailable'];
+      availabilityArr.forEach(el=>{
+        selectedAvailability= el===selectedProduct.availability ? 'selected':'';
+        availabilityOptions+=`<option value="${el}" ${selectedAvailability}>${el}</option>`;
+      })
+    
 
       let categoryOptions = "";
       let selectedCategory = "";
