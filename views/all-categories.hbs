@@ -1,9 +1,9 @@
 <div>
-    <h2>{{categoryName}}</h2>
+    <h2>All Products</h2>
 
-    <div class="filter">
+    {{!-- <div class="filter">
         <h3>Price</h3>
-        <form action="/categories/{{categoryName}}" method="POST">
+        <form action="/search/results/filter" method="POST">
          
             <input type="radio" id="lt-20" name="price" value="0-20">
             <label for="lt-20">Under 20€</label><br>
@@ -19,7 +19,7 @@
 
     <div class="filter">
         <h3>Availability</h3>
-        <form action="/categories/{{categoryName}}" method="POST">
+        <form action="/search/results/filter" method="POST">
          
             <input type="radio" id="available" name="availability" value="available">
             <label for="available">Available</label><br>
@@ -30,11 +30,11 @@
     </div>
 
 
-</div>
+</div> --}}
 
 <div class="product-grid">
 
-    {{#each categoryProductList}}
+    {{#each productList}}
         <a href="/show/{{_id}}/product">
             <div class="product-container">
                 <div class="image-container">

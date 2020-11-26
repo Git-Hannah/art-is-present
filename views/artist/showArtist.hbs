@@ -1,3 +1,4 @@
+
 {{#with artist}}
 <section class="artist-profile">
   <div class="avatar">
@@ -10,29 +11,29 @@
     <p>{{about}}</p>
   </div>
   {{!-- {{#if isArtist}} --}}
-  <a href="/artist/edit">Edit profile</a>
+  {{!-- <a href="/artist/edit">Edit profile</a> --}}
   {{!-- <a href="/auth/logout">Log out</a>  I commented this 'cause now is in the header --}}
   {{!-- {{else}} --}}
-  {{!-- <a href="mailto:{{email}}">Contact Artist</a> --}}
+  <a href="mailto:{{email}}">Contact Artist</a>
   {{!-- {{/if}} --}}
 </section>
 {{/with}}
 
 <section class="artist-profile-products">
-  {{#if isArtist}}
-  <h3>Your products:</h3>
-  {{else}}
-  <h3>{{name}}'s products:</h3>
-  {{/if}}
-  <a href="/add/product">Add product</a>
+  {{!-- {{#if isArtist}} --}}
+  <h3>{{artist.name}}'s products:</h3>
+  {{!-- {{else}} --}}
+  {{!-- <h3>{{name}}'s products:</h3> --}}
+  {{!-- {{/if}} --}}
+  {{!-- <a href="/add/product">Add product</a> --}}
   {{#each productList}}
   <a href="/show/{{_id}}/product"><img src={{images.[0]}} alt="product-image"></a>
   <a href="/show/{{_id}}/product">
     <h4>{{name}}</h4>
   </a>
 
-  <a href="/edit/{{_id}}/product">Edit</a>
-  <a href="/delete/{{_id}}/product">Delete</a>
+  {{!-- <a href="/edit/{{_id}}/product">Edit</a>
+  <a href="/delete/{{_id}}/product">Delete</a> --}}
   <br>
   {{/each}}
 

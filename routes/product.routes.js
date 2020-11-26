@@ -8,7 +8,7 @@ const { uploadCloud, cloudinary } = require("../configs/cloudinary.config");
 router.get("/edit/:id/product", (req, res, next) => {
   Product.findById(req.params.id)
     .then(selectedProduct=>{
-      console.log(selectedProduct);
+      //console.log(selectedProduct);
       let selectedAvailability='';
       let availabilityOptions='';
       const availabilityArr=['available','currently unavailable'];
@@ -59,8 +59,8 @@ router.post('/edit/:id/product',uploadCloud.array('images'),(req,res,next)=>{
 
 router.get('/show/:id/product',(req,res,next)=>{
   Product.findById(req.params.id).populate('owner')
-    .then(foundProduct=>{
-      //console.log(req.session.passport.user==foundProduct.owner[0]._id)
+  .then(foundProduct=>{
+    console.log(foundProduct)
       const isOwner= req.session.passport.user==foundProduct.owner[0]._id
       const price= new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(foundProduct.price);
       res.render('products/show',{foundProduct,price, isOwner, user: req.session.passport.user})
@@ -81,7 +81,7 @@ router.post("/add/product", uploadCloud.array("images"), (req, res, next) => {
   const owner=req.session.passport.user //get and set the owner's id
   
 
-  Product.create({name,price,availability,category,description,images,owner})
+  Product.create({name:name,price,availability,category,description,images,owner})
     .then((newProduct)=>{
       //const isOwner= owner===newProduct.owner
       //res.render('products/show',{foundProduct:newProduct,isOwner})
