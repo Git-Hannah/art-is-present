@@ -5,14 +5,14 @@ const Product = require("../models/Product");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index', {user: req.session.passport?.user});
+  res.render('index', {user: req.session.passport.user});
 });
 
 router.get('/categories/:categoryName', (req,res,next) => {
   const categoryName = req.params.categoryName;
   Product.find({category: categoryName}).populate("owner")
   .then (categoryProductList => {
-    res.render('categories', {categoryProductList, categoryName, user: req.session.passport?.user});
+    res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
 
   }).catch (err => console.log(err))
 }) 
@@ -27,7 +27,7 @@ router.get('/categories/:categoryName', (req,res,next) => {
 //  // console.log(+req.body.price.split("-")[0]);
 //   // Product.find({category: categoryName, $and: [ { qty: { $lt: 100 } }, { qty: { $gt: 30 } } ]  })
 //   // .then (categoryProductList => {
-//   //   res.render('categories', {categoryProductList, categoryName, user: req.session.passport?.user});
+//   //   res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
 
 //   // }).catch (err => console.log(err))
 // })
