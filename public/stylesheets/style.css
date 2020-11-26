@@ -151,8 +151,7 @@ a {
 .card-bottom-content {
   padding: 15px;
   display: flex;
-  flex-direction: column;
-  align-items: center; }
+  flex-direction: column; }
 
 .product-name {
   font-size: 25px;
@@ -160,12 +159,42 @@ a {
 
 .edit-product-btn,
 .delete-product-btn {
-  margin: 0 10px 5px 10px;
   background-color: #968c89;
   color: white;
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 0.1em 1em;
   border-radius: 50px;
-  text-align: center; }
+  text-align: center;
+  width: 100px; }
+
+.links {
+  display: flex;
+  justify-content: space-between; }
+
+.edit-product-btn:hover {
+  background-color: white;
+  color: #292a33; }
+
+.delete-product-btn:hover {
+  background-color: white;
+  color: #292a33; }
+
+.product-view-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.add-product-btn {
+  background-color: #50d8ad;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 0.1em 1em;
+  border-radius: 50px;
+  text-align: center;
+  width: 150px; }
+
+.add-product-btn:hover {
+  background-color: white;
+  color: #292a33; }
 
 /*# sourceMappingURL=style.css.map */
