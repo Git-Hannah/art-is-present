@@ -1,33 +1,28 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 const Product = require("../models/Product");
 const Artist= require("../models/Artist");
 
 /* GET home page */
-router.get('/', (req, res, next) => {
-  let artistName='none';
-  // if(req.session.passport.user){
-  // Artist.findById(req.session.passport.user)
-  //   .then(artist=>{
-  //     artistName=artist.name;
-  //   })
-  // }  
-  //res.render('index', artistName, {user: req.session.passport.user});
-  res.render('index', {user: req.session.passport.user});
-
+router.get("/", (req, res, next) => {
+  const user = req.session.passport ? req.session.passport.user : undefined;
+  res.render("index", { user });
 });
 
-router.get('/categories/:categoryName', (req,res,next) => {
+router.get("/categories/:categoryName", (req, res, next) => {
   const categoryName = req.params.categoryName;
-  Product.find({category: categoryName}).populate("owner")
-  .then (categoryProductList => {
-    res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
-
-  }).catch (err => console.log(err))
-}) 
+  Product.find({ category: categoryName })
+    .populate("owner")
+    .then((categoryProductList) => {
+      const user = req.session.passport ? req.session.passport.user : undefined;
+      res.render("categories", { categoryProductList, categoryName, user });
+    })
+    .catch((err) => console.log(err));
+});
 
 router.post('/categories/:categoryName', (req, res, next) => {
   const categoryName = req.params.categoryName;
+  const user = req.session.passport ? req.session.passport.user : undefined;
 
   if(req.body.price){
     //console.log(req.body)
@@ -35,7 +30,7 @@ router.post('/categories/:categoryName', (req, res, next) => {
       const lower = req.body.price[0].split("-")[0];
       Product.find({category: categoryName, price: { $gte: lower }})
       .then (categoryProductList => {
-        res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
+        res.render('categories', {categoryProductList, categoryName, user});
       })
       .catch (err => console.log(err))
       
@@ -45,7 +40,7 @@ router.post('/categories/:categoryName', (req, res, next) => {
       Product.find({category: categoryName, $and: [ { price: { $lte: higher } }, { price: { $gt: lower } } ]  })
       .then (categoryProductList => {
         //console.log(categoryProductList,higher,lower)
-        res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
+        res.render('categories', {categoryProductList, categoryName, user});
       })
       .catch (err => console.log(err))
     }
@@ -55,7 +50,7 @@ router.post('/categories/:categoryName', (req, res, next) => {
     //console.log('heeeere',req.body.availability)
     Product.find({category: categoryName, availability: req.body.availability})
     .then(categoryProductList=>{
-      res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
+      res.render('categories', {categoryProductList, categoryName, user});
     })
       .catch(err=>next(err))
 
@@ -66,10 +61,12 @@ router.post('/categories/:categoryName', (req, res, next) => {
 router.post('/search/results',(req, res, next)=>{
   console.log(req.body.query)
   const query=req.body.query;
+  const user = req.session.passport ? req.session.passport.user : undefined;
+
   Product.find({name:query})//change the query to search for products which name or description contain the string in the search bar
     .then(productList=>{
       //console.log(productList)
-      res.render('all-categories',{productList,user: req.session.passport.user})
+      res.render('all-categories',{productList,user})
     })
     .catch(err=>next(err))
 })
@@ -111,5 +108,3 @@ router.post('/search/results',(req, res, next)=>{
 // })
 
 module.exports = router;
-
-

@@ -1,51 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Art is Present</title>
+
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,100;1,300&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
   <header>
+    <div class="header-wrapper">
+      <div class="top-header">
+        <img class="logo" src="/images/logo.png" alt="logo">
+        <form action="/search/results" method="post">
+          <input type="text" name="query" placeholder="Search presents">
+          <button type='submit'><img style="width:10%;" src="../public/images/logo present.jpg" alt="magnifying glass"></button>
+        </form>
+        <div>
+          {{#if user}}
+          <a class="logout" href="/auth/logout">Log out</a>
+          <a class="your-profile" href="/artist/show">Profile</a>
 
-   <div class="topnav">
+          {{else}}
+          <a class="signup" href="/auth/signup">Create artist profile</a>
+          <a class="signup" href="/auth/login">Log in</a>
 
-     <a class="logo" href="/"><img src="#" alt="Logo"></a>
-     <form action="/search/results" method="post">
-      <input type="text" name="query" placeholder="Search presents">
-      <button type='submit'><img style="width:10%;" src="../public/images/logo present.jpg" alt="magnifying glass"></button>
-     </form>
 
-     <div>
-       {{#if user}}
-        <a href="/auth/logout">Log out</a>
-        <a href="/artist/show">Your profile</a>
-      {{else}}
-        <a href="/auth/signup">Create an profile</a>
-        <a href="/auth/login">Log in</a>
-      {{/if}}
-    </div>
+          {{/if}}
+        </div>
+      </div>
+      {{!-- <div class="bottom-header"> --}}
+      <nav class="categories">
+        <ul>
+          <li>
+            <a href="/categories/Painting">Painting</a>
+          </li>
+          <li>
+            <a href="/categories/Drawing">Drawing</a>
+          </li>
+          <li>
+            <a href="/categories/Photography">Photography</a>
+          </li>
+          <li>
+            <a href="/categories/Performance">Performance</a>
+          </li>
+          <li>
+            <a href="/categories/Music">Music</a></li>
+        </ul>
+      </nav>
+      {{!-- </div> --}}
+      {{!-- 
+      <div class="topnav">
+        <a class="logo" href="/"><img src="#" alt="Logo"></a>
+        <input type="text" placeholder="Search presents">
+        <div>
+          {{#if user}}
+          <a href="/auth/logout">Log out</a>
+          <a href="/artist/show">Your profile</a>
+          {{else}}
+          <a href="auth/signup">Create an profile</a>
+          {{/if}}
+        </div>
+ --}}
 
-  </div> 
-
-  <nav class="div-categories">
-    <a href="/categories/Painting">Painting</a>
-    <a href="/categories/Drawing">Drawing</a>
-    <a href="/categories/Photography">Photography</a>
-    <a href="/categories/Performance">Performance</a>
-    <a href="/categories/Music">Music</a>
-
-  </nav>
-</header>
+  </header>
 
   {{{body}}}
 
-<footer>
-  <h6>Made by HortenciaVesnaHannah</h6>
-</footer>
+  <footer>
+    <h6>Made by 💛Hortencia & Vesna & Hannah💛</h6>
+  </footer>
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>
