@@ -8,18 +8,20 @@ const { uploadCloud, cloudinary } = require("../configs/cloudinary.config");
 
 //routes
 router.get("/add", (req, res, next) => {
-  res.render("artist/add", { user: req.session.passport.user });
+  const user = req.session.passport ? req.session.passport.user : undefined;
+  res.render("artist/add", { user });
 });
 
 router.get("/show", (req, res, next) => {
   Artist.findById(req.session.passport.user).then((artist) => {
     Product.find({ owner: { $in: req.session.passport.user } })
       .then((productList) => {
+        const user = req.session.passport ? req.session.passport.user : undefined;
         console.log("productList", productList);
         res.render("artist/show", {
           productList,
           artist,
-          user: req.session.passport.user,
+          user
         });
       })
       .catch((err) => {
@@ -41,9 +43,10 @@ router.get("/show", (req, res, next) => {
 router.get("/edit", (req, res, next) => {
   Artist.findById(req.session.passport.user)
     .then((selectedArtist) => {
+      const user = req.session.passport ? req.session.passport.user : undefined;
       res.render("artist/edit", {
         selectedArtist,
-        user: req.session.passport.user,
+        user
       });
     })
     .catch((err) => next(err));
@@ -84,6 +87,7 @@ router.post("/edit", uploadCloud.single("avatar"), (req, res, next) => {
 });
 
 router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
+  const user = req.session.passport ? req.session.passport.user : undefined;
   const { name, city, country, about } = req.body;
   // console.log(req.file.path);
   console.log("req.body", req.body);
@@ -106,7 +110,7 @@ router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
       if (err instanceof mongoose.Error.ValidationError) {
         res.status(500).render(
           "artist/add",
-          { selectedArtist: editedProfile, user: req.session.passport.user },
+          { selectedArtist: editedProfile, user },
           {
             errorMessage: err.message,
           }
