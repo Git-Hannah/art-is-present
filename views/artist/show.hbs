@@ -17,19 +17,30 @@
 
 <section class="artist-profile-products">
   <h3>Your listings</h3>
-
   <a href="/add/product">Add product</a>
-  {{#each productList}}
-  {{!-- {{#each images}} --}}
-  <a href="/show/{{_id}}/product"><img src={{images.[0]}} alt="product-image"></a>
-  {{!-- {{/each}} --}}
-  <a href="/show/{{_id}}/product">
-    <h4>{{name}}</h4>
-  </a>
 
-  <a href="/edit/{{_id}}/product">Edit</a>
-  <a href="/delete/{{_id}}/product">Delete</a>
-  <br>
-  {{/each}}
+  <div class="grid-container">
+    {{#each productList}}
 
+    <div class="product-item">
+      <a href="/show/{{_id}}/product">
+        <img class="product-img" src={{images.[0]}} alt="product-image">
+      </a>
+      <div class="card-bottom-content">
+        <a href="/show/{{_id}}/product">
+          <h3 class="product-name">{{name}}</h3>
+        </a>
+        <div>
+          <div class="links">
+            <a class="edit-product-btn" href="/edit/{{_id}}/product">Edit</a>
+            <a class="delete-product-btn" href="/delete/{{_id}}/product">Delete</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    {{!-- <br> --}}
+    {{/each}}
+
+  </div>
 </section>
