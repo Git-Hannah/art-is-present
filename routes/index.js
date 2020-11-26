@@ -1,23 +1,23 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 const Product = require("../models/Product");
 
-
 /* GET home page */
-router.get('/', (req, res, next) => {
+router.get("/", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
-  res.render('index', {user});
+  res.render("index", { user });
 });
 
-router.get('/categories/:categoryName', (req,res,next) => {
+router.get("/categories/:categoryName", (req, res, next) => {
   const categoryName = req.params.categoryName;
-  Product.find({category: categoryName}).populate("owner")
-  .then (categoryProductList => {
-    const user = req.session.passport ? req.session.passport.user : undefined;
-    res.render('categories', {categoryProductList, categoryName, user});
-
-  }).catch (err => console.log(err))
-}) 
+  Product.find({ category: categoryName })
+    .populate("owner")
+    .then((categoryProductList) => {
+      const user = req.session.passport ? req.session.passport.user : undefined;
+      res.render("categories", { categoryProductList, categoryName, user });
+    })
+    .catch((err) => console.log(err));
+});
 
 // router.post('/categories/:categoryName', (req, res, next) => {
 //   const categoryName = req.params.categoryName;
@@ -34,7 +34,4 @@ router.get('/categories/:categoryName', (req,res,next) => {
 //   // }).catch (err => console.log(err))
 // })
 
-
 module.exports = router;
-
-

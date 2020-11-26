@@ -6,14 +6,29 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #2f303a;
-  background-image: linear-gradient(to bottom right, #2f303a, #64667c);
+  // background-image: linear-gradient(to bottom right, #2f303a, #64667c);
   color: #ffffff;
 }
 
-header {
+header,
+footer {
   background-color: #292a33;
-  height: 15vh;
   padding: 10px 50px 0;
+}
+
+footer {
+  height: 9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h6 {
+  margin: 0;
+}
+
+input {
+  outline: none;
 }
 
 .header-wrapper {
@@ -25,22 +40,37 @@ header {
 .top-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 7%;
+  margin-right: 10px;
 }
 
 .top-header input {
   border: none;
-  width: 70%;
+  width: 65%;
   height: 35px;
   border-radius: 50px;
   font-size: 18px;
   padding-left: 15px;
 }
 
-.logout {
+.logout,
+.your-profile,
+.signup {
   font-size: 18px;
+  margin: 0 1em 0;
 }
 
+.signup:hover {
+  border-bottom: 0.5px solid white;
+}
 .logout:hover {
+  border-bottom: 0.5px solid white;
+}
+.your-profile:hover {
   border-bottom: 0.5px solid white;
 }
 
@@ -48,8 +78,8 @@ header {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 3% 0 0;
-  font-size: 15px;
+  margin: 3% 0 0.5%;
+  // font-size: 15px;
 }
 
 .categories li {
@@ -67,11 +97,6 @@ header {
 .categories a:hover {
   color: #292a33;
 }
-
-//  {
-//   font-size: 15px;
-//   // text-decoration: underline;
-// }
 
 a {
   text-decoration: none;
@@ -142,30 +167,305 @@ a {
   margin: 0 50px 0;
 }
 
-//products section
-
+//vesna, products section
 .artist-profile-products {
+  padding: 3%;
+  display: flex;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 32px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.product-item {
+  max-height: 100%;
+  // box-shadow: 0px 5px 10px rgba(138, 136, 136, 0.74);
+  background-color: #292a33;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-item:hover {
+  border: 0.5px solid #7d7c80a1;
+}
+
+.product-img {
+  width: 100%;
+  margin: 0;
+}
+
+.card-bottom-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-size: 25px;
+  margin-top: 0;
+}
+
+.edit-product-btn,
+.delete-product-btn {
+  background-color: #968c89;
+  color: white;
+  font-size: 1em;
+  padding: 0.1em 1em;
+  border-radius: 50px;
+  text-align: center;
+  width: 100px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-product-btn:hover {
+  background-color: white;
+  color: #292a33;
+}
+
+.delete-product-btn:hover {
+  background-color: white;
+  color: #292a33;
+}
+
+.product-view-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 2%;
+}
+
+.add-btn {
+  background-color: #43977c;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 0.4em;
+  border-radius: 50px;
+  text-align: center;
+  width: 150px;
+}
+
+.add-btn:hover {
+  background-color: white;
+  color: #292a33;
+}
+
+//vesna, all forms:
+.edit-profile-wrapper,
+.add-product-wrapper,
+.artist-profile-wrapper {
   padding: 3%;
 }
 
-
-
-
-// Hannahs styling:
-//Logo in Layout:
-.logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.artist-profile-wrapper h2 {
+  text-align: center;
 }
 
-//Hannah, Hero image homepage:
-.index-header {
-  
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 650px;
-  padding-top: 50px;
-  position: relative;
+.edit-form,
+.add-product-form,
+.add-profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // border: 1px solid white;
+  border-radius: 8px;
+  padding: 70px;
+  margin: 0 20%;
+  background-color: #292a33;
+  // position: relative;
+  // z-index: 10;
+}
+
+.edit-form label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.edit-form input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px;
+}
+
+.edit-form textarea {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 15px;
+  margin: 10px 0 20px;
+  outline: none;
+}
+
+.add-product-form label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-product-form textarea {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 15px;
+  margin: 10px 0 20px;
+  outline: none;
+  width: 100%;
+}
+
+.add-product-form input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px;
+  width: 100%;
+}
+
+.add-profile-form label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-profile-form textarea {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 15px;
+  margin: 10px 0 20px;
+  outline: none;
+  width: 100%;
+}
+
+.add-profile-form input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px;
+  width: 100%;
+}
+
+.artist-name,
+.artist-location,
+.artist-about,
+.add-profilepic,
+.product-name,
+.product-price,
+.product-availability,
+.product-category,
+.product-description,
+.add-productimg,
+.add-artist-name {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.save-changes-btn,
+.add-product-btn,
+.create-profile-btn {
+  background-color: #f5a288;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 0.3em 2em;
+  border-radius: 50px;
+  text-align: center;
+  width: 100%;
+  border: none;
+  margin-top: 15px;
+}
+
+.save-changes-btn:hover {
+  background-color: #ee653b;
+}
+
+.add-product-btn:hover {
+  background-color: #ee653b;
+}
+
+.create-profile-btn:hover {
+  background-color: #ee653b;
+}
+
+// .inputfile {
+//   width: 0.1px;
+//   height: 0.1px;
+//   opacity: 0;
+//   overflow: hidden;
+//   position: absolute;
+//   z-index: -1;
+// }
+
+// .inputfile + .avatar-label {
+//   cursor: pointer; /* "hand" cursor */
+// }
+
+//vesna, add product form
+
+.select-css {
+  background-color: #292a33;
+  display: block;
+  font-size: 13px;
+  outline: none;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  // width: 100%;
+  // max-width: 100%;
+  // box-sizing: border-box;
+  margin: 10px 0 20px;
+  // border: 1px solid #aaa;
+  // box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+.select-css::-ms-expand {
+  display: none;
+}
+.select-css:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+.select-css option {
+  font-weight: normal;
 }

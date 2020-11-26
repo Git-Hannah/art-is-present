@@ -16,12 +16,14 @@ router.get("/show", (req, res, next) => {
   Artist.findById(req.session.passport.user).then((artist) => {
     Product.find({ owner: { $in: req.session.passport.user } })
       .then((productList) => {
-        const user = req.session.passport ? req.session.passport.user : undefined;
+        const user = req.session.passport
+          ? req.session.passport.user
+          : undefined;
         console.log("productList", productList);
         res.render("artist/show", {
           productList,
           artist,
-          user
+          user,
         });
       })
       .catch((err) => {
@@ -46,7 +48,7 @@ router.get("/edit", (req, res, next) => {
       const user = req.session.passport ? req.session.passport.user : undefined;
       res.render("artist/edit", {
         selectedArtist,
-        user
+        user,
       });
     })
     .catch((err) => next(err));

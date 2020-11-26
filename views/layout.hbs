@@ -17,15 +17,18 @@
   <header>
     <div class="header-wrapper">
       <div class="top-header">
-        <a href="/"><img class="logo" src="/images/Logo Canva simple.png" alt="Logo"></a>
+        <img class="logo" src="/images/logo.png" alt="logo">
         <input type="text" placeholder="Search for presents">
         <div>
           {{#if user}}
           <a class="logout" href="/auth/logout">Log out</a>
-          <a href="/artist/show">Your profile</a>
+          <a class="your-profile" href="/artist/show">Profile</a>
 
           {{else}}
-          <a href="/auth/signup">Create artist profile</a>
+          <a class="signup" href="auth/signup">Create artist profile</a>
+          <a class="signup" href="auth/login">Log in</a>
+
+
           {{/if}}
         </div>
       </div>
@@ -51,10 +54,8 @@
       {{!-- </div> --}}
       {{!-- 
       <div class="topnav">
-
         <a class="logo" href="/"><img src="#" alt="Logo"></a>
         <input type="text" placeholder="Search presents">
-
         <div>
           {{#if user}}
           <a href="/auth/logout">Log out</a>
@@ -70,7 +71,7 @@
   {{{body}}}
 
   <footer>
-    <h6>Made by HortenciaVesnaHannah</h6>
+    <h6>Made by 💛Hortencia & Vesna & Hannah💛</h6>
   </footer>
   <script src="/javascripts/script.js"></script>
 </body>
