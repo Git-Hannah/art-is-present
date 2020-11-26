@@ -1,18 +1,16 @@
 <section class="add-product-wrapper">
 
   {{#with selectedProduct}}
-  <h2>Edit Product</h2>
+  <h2>Edit Product:</h2>
 
   <form class="add-product-form" action="/edit/{{_id}}/product" method="POST" enctype="multipart/form-data">
     <div class="product-name">
       <label for="name">Product title:</label>
-      <input type="text" id="name" name="name" placeholder="Add the name of your product name/service here."
-        value={{name}}>
+      <input type="text" id="name" name="name" value={{name}}>
     </div>
     <div class="product-price">
       <label for="price">Price:</label>
-      <input type="text" id="price" name="price" placeholder="Add the price of your product name/service here."
-        value={{price}}>
+      <input type="text" id="price" name="price" value={{price}}>
       {{/with}}
     </div>
 
@@ -48,3 +46,5 @@
   </form>
 
   {{/with}}
+
+</section>
