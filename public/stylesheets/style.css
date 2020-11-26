@@ -5,7 +5,8 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #2f303a;
-  color: #ffffff; }
+  color: #ffffff;
+  height: 100vh; }
 
 header,
 footer {
@@ -16,7 +17,8 @@ footer {
   height: 9vh;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 0; }
 
 h6 {
   margin: 0; }
@@ -146,7 +148,7 @@ a {
   padding: 0.3em 2em;
   border-radius: 50px;
   text-align: center;
-  width: 200px; }
+  width: 70%; }
 
 .edit-profile-btn:hover {
   background-color: #ee653b; }
@@ -233,7 +235,9 @@ a {
 
 .edit-profile-wrapper,
 .add-product-wrapper,
-.artist-profile-wrapper {
+.artist-profile-wrapper,
+.login-wrapper,
+.signup-wrapper {
   padding: 3%; }
 
 .artist-profile-wrapper h2 {
@@ -241,7 +245,8 @@ a {
 
 .edit-form,
 .add-product-form,
-.add-profile-form {
+.add-profile-form,
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -249,6 +254,34 @@ a {
   padding: 70px;
   margin: 0 20%;
   background-color: #292a33; }
+
+.login-email label {
+  font-size: 20px;
+  font-weight: 600; }
+
+.login-email input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px; }
+
+.login-password label {
+  font-size: 20px;
+  font-weight: 600; }
+
+.login-password input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px; }
 
 .edit-form label {
   font-size: 20px;
@@ -339,14 +372,17 @@ a {
 .product-category,
 .product-description,
 .add-productimg,
-.add-artist-name {
+.add-artist-name,
+.login-email,
+.login-password {
   display: flex;
   flex-direction: column;
   width: 100%; }
 
 .save-changes-btn,
 .add-product-btn,
-.create-profile-btn {
+.create-profile-btn,
+.login-btn {
   background-color: #f5a288;
   color: white;
   font-size: 1.2em;
@@ -365,6 +401,9 @@ a {
   background-color: #ee653b; }
 
 .create-profile-btn:hover {
+  background-color: #ee653b; }
+
+.login-btn:hover {
   background-color: #ee653b; }
 
 .select-css {

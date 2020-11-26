@@ -8,6 +8,7 @@ body {
   background-color: #2f303a;
   // background-image: linear-gradient(to bottom right, #2f303a, #64667c);
   color: #ffffff;
+  height: 100vh;
 }
 
 header,
@@ -179,7 +180,7 @@ a {
   padding: 0.3em 2em;
   border-radius: 50px;
   text-align: center;
-  width: 200px;
+  width: 70%;
 }
 
 .edit-profile-btn:hover {
@@ -286,7 +287,9 @@ a {
 //vesna, all forms:
 .edit-profile-wrapper,
 .add-product-wrapper,
-.artist-profile-wrapper {
+.artist-profile-wrapper,
+.login-wrapper,
+.signup-wrapper {
   padding: 3%;
 }
 
@@ -296,7 +299,8 @@ a {
 
 .edit-form,
 .add-product-form,
-.add-profile-form {
+.add-profile-form,
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -307,6 +311,38 @@ a {
   background-color: #292a33;
   // position: relative;
   // z-index: 10;
+}
+
+.login-email label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.login-email input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px;
+}
+
+.login-password label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.login-password input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px;
 }
 
 .edit-form label {
@@ -407,7 +443,9 @@ a {
 .product-category,
 .product-description,
 .add-productimg,
-.add-artist-name {
+.add-artist-name,
+.login-email,
+.login-password {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -415,7 +453,8 @@ a {
 
 .save-changes-btn,
 .add-product-btn,
-.create-profile-btn {
+.create-profile-btn,
+.login-btn {
   background-color: #f5a288;
   color: white;
   font-size: 1.2em;
@@ -440,18 +479,9 @@ a {
   background-color: #ee653b;
 }
 
-// .inputfile {
-//   width: 0.1px;
-//   height: 0.1px;
-//   opacity: 0;
-//   overflow: hidden;
-//   position: absolute;
-//   z-index: -1;
-// }
-
-// .inputfile + .avatar-label {
-//   cursor: pointer; /* "hand" cursor */
-// }
+.login-btn:hover {
+  background-color: #ee653b;
+}
 
 //vesna, add product form
 
