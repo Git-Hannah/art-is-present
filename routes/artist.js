@@ -8,7 +8,8 @@ const { uploadCloud, cloudinary } = require("../configs/cloudinary.config");
 
 //routes
 router.get("/add", (req, res, next) => {
-  res.render("artist/add", { user: req.session.passport.user });
+  const user = req.session.passport ? req.session.passport.user : undefined;
+  res.render("artist/add", { user });
 });
 
 router.get("/show", (req, res, next) => {

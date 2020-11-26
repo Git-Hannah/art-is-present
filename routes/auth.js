@@ -12,11 +12,15 @@ const { deserializeUser } = require("passport");
 //routes:
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup", { user: req.session.passport.user });
+  const user = req.session.passport ? req.session.passport.user : undefined;
+
+  res.render("auth/signup", { user });
 });
 
 router.get("/login", (req, res) => {
-  res.render("auth/login", { user: req.session.passport.user });
+  const user = req.session.passport ? req.session.passport.user : undefined;
+
+  res.render("auth/login", { user });
 });
 
 router.post(
