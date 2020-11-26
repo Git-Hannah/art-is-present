@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const { uploadCloud, cloudinary } = require("../configs/cloudinary.config");
 
 router.get("/edit/:id/product", (req, res, next) => {
+  const user = req.session.passport ? req.session.passport.user : undefined;
   Product.findById(req.params.id)
     .then(selectedProduct=>{
       console.log(selectedProduct);
@@ -26,12 +27,13 @@ router.get("/edit/:id/product", (req, res, next) => {
         categoryOptions+=`<option value="${el}" ${selectedCategory}>${el}</option>`;
       })
 
-      res.render('products/edit',{selectedProduct,availabilityOptions,categoryOptions, user: req.session.passport.user});
+      res.render('products/edit',{selectedProduct,availabilityOptions,categoryOptions, user});
     })
     .catch(err=>next(err))
 }); 
 
 router.post('/edit/:id/product',uploadCloud.array('images'),(req,res,next)=>{
+  const user = req.session.passport ? req.session.passport.user : undefined;
   const {name,price,availability,category,description}=req.body;
   const images=req.files.map(file=>file.path);
   let editedProduct;
@@ -45,11 +47,11 @@ router.post('/edit/:id/product',uploadCloud.array('images'),(req,res,next)=>{
   .then(foundProduct=>{
     const price= new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(foundProduct.price);
     const isOwner= req.session.passport.user==foundProduct.owner[0]._id
-    res.render('products/show',{foundProduct,price, isOwner, user: req.session.passport.user})
+    res.render('products/show',{foundProduct,price, isOwner, user})
     })
     .catch(err=>{
       if(err instanceof mongoose.Error.ValidationError){
-        res.status(500).render('products/edit',{selectedProduct:editedProduct, user: req.session.passport.user},{
+        res.status(500).render('products/edit',{selectedProduct:editedProduct, user},{
           errorMessage: err.message});
       }else{
         next(err);
@@ -58,24 +60,26 @@ router.post('/edit/:id/product',uploadCloud.array('images'),(req,res,next)=>{
 });
 
 router.get('/show/:id/product',(req,res,next)=>{
+  const user = req.session.passport ? req.session.passport.user : undefined;
   Product.findById(req.params.id).populate('owner')
     .then(foundProduct=>{
       //console.log(req.session.passport.user==foundProduct.owner[0]._id)
       const isOwner= req.session.passport.user==foundProduct.owner[0]._id
       const price= new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(foundProduct.price);
-      res.render('products/show',{foundProduct,price, isOwner, user: req.session.passport.user})
+      res.render('products/show',{foundProduct,price, isOwner, user})
 
     })
     .catch((err) => next(err));
 });
 
 router.get("/add/product", (req, res, next) => {
-  res.render("products/add", {user: req.session.passport.user});
+  const user = req.session.passport ? req.session.passport.user : undefined;
+  res.render("products/add", {user});
 });
 
 router.post("/add/product", uploadCloud.array("images"), (req, res, next) => {
   //console.log(req.body)
-
+  const user = req.session.passport ? req.session.passport.user : undefined;
   const {name,price,availability,category,description}=req.body;
   const images=req.files.map(file=>file.path);
   const owner=req.session.passport.user //get and set the owner's id
@@ -93,7 +97,7 @@ router.post("/add/product", uploadCloud.array("images"), (req, res, next) => {
       if (err instanceof mongoose.Error.ValidationError) {
         res.status(500).render("products/add", {
           errorMessage: err.message,
-          user: req.session.passport.user
+          user
         });
         //console.log('hi')
       } else {

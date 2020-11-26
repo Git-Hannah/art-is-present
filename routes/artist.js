@@ -95,7 +95,7 @@ router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
 
   const avatar = req.file ? req.file.path : "";
   // { $set: { <field1>: <value1>, ... } }
-  Artist.findByIdAndUpdate(req.session.passport.user, {
+  Artist.findByIdAndUpdate(user, {
     name: name,
     city: city,
     country: country,
