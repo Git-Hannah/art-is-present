@@ -30,8 +30,9 @@ router.post('/categories/:categoryName', (req, res, next) => {
   const categoryName = req.params.categoryName;
 
   if(req.body.price){
-    if (req.body.price.split("-")[1]== ''){
-      const lower = req.body.price.split("-")[0];
+    //console.log(req.body)
+    if (req.body.price[0].split("-")[1]== ''){
+      const lower = req.body.price[0].split("-")[0];
       Product.find({category: categoryName, price: { $gte: lower }})
       .then (categoryProductList => {
         res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
@@ -39,8 +40,8 @@ router.post('/categories/:categoryName', (req, res, next) => {
       .catch (err => console.log(err))
       
     }else{
-      const lower = req.body.price.split("-")[0];
-      const higher = req.body.price.split("-")[1];
+      const lower = req.body.price[0].split("-")[0];
+      const higher = req.body.price[0].split("-")[1];
       Product.find({category: categoryName, $and: [ { price: { $lte: higher } }, { price: { $gt: lower } } ]  })
       .then (categoryProductList => {
         //console.log(categoryProductList,higher,lower)
@@ -51,7 +52,7 @@ router.post('/categories/:categoryName', (req, res, next) => {
   }
 
   if(req.body.availability){
-    console.log('heeeere',req.body.availability)
+    //console.log('heeeere',req.body.availability)
     Product.find({category: categoryName, availability: req.body.availability})
     .then(categoryProductList=>{
       res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
@@ -73,7 +74,7 @@ router.post('/search/results',(req, res, next)=>{
     .catch(err=>next(err))
 })
 
-router.post('/search/results/filter',(req,res,next)=>{
+// router.post('/search/results/filter',(req,res,next)=>{
 
   // if(req.body.price){
   //   if (req.body.price.split("-")[1]== ''){
@@ -107,7 +108,7 @@ router.post('/search/results/filter',(req,res,next)=>{
   // }
 
 
-})
+// })
 
 module.exports = router;
 
