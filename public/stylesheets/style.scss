@@ -196,11 +196,6 @@ a {
   border: 0.5px solid #7d7c80a1;
 }
 
-// .main-content-product {
-//   display: flex;
-//   margin-bottom: 16px;
-// }
-
 .product-img {
   width: 100%;
   margin: 0;
@@ -265,13 +260,20 @@ a {
   color: #292a33;
 }
 
-//vesna, edit profile form:
+//vesna, all forms:
 .edit-profile-wrapper,
-.add-product-wrapper {
+.add-product-wrapper,
+.artist-profile-wrapper {
   padding: 3%;
 }
+
+.artist-profile-wrapper h2 {
+  text-align: center;
+}
+
 .edit-form,
-.add-product-form {
+.add-product-form,
+.add-profile-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -342,6 +344,36 @@ a {
   width: 100%;
 }
 
+.add-profile-form label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-profile-form textarea {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 15px;
+  margin: 10px 0 20px;
+  outline: none;
+  width: 100%;
+}
+
+.add-profile-form input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px;
+  width: 100%;
+}
+
 .artist-name,
 .artist-location,
 .artist-about,
@@ -351,14 +383,16 @@ a {
 .product-availability,
 .product-category,
 .product-description,
-.add-productimg {
+.add-productimg,
+.add-artist-name {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .save-changes-btn,
-.add-product-btn {
+.add-product-btn,
+.create-profile-btn {
   background-color: #f5a288;
   color: white;
   font-size: 1.2em;
@@ -376,6 +410,10 @@ a {
 }
 
 .add-product-btn:hover {
+  background-color: #ee653b;
+}
+
+.create-profile-btn:hover {
   background-color: #ee653b;
 }
 
