@@ -13,7 +13,8 @@ router.get('/categories/:categoryName', (req,res,next) => {
   const categoryName = req.params.categoryName;
   Product.find({category: categoryName}).populate("owner")
   .then (categoryProductList => {
-    res.render('categories', {categoryProductList, categoryName, user: req.session.passport.user});
+    const user = req.session.passport ? req.session.passport.user : undefined;
+    res.render('categories', {categoryProductList, categoryName, user});
 
   }).catch (err => console.log(err))
 }) 
