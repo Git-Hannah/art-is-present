@@ -5,13 +5,14 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #2f303a;
-  background-image: linear-gradient(to bottom right, #2f303a, #64667c);
   color: #ffffff; }
 
 header {
   background-color: #292a33;
-  height: 15vh;
   padding: 10px 50px 0; }
+
+input {
+  outline: none; }
 
 .header-wrapper {
   display: flex;
@@ -50,7 +51,7 @@ header {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 3% 0 0; }
+  margin: 3% 0 0.5%; }
 
 .categories li {
   margin-right: 1%;
@@ -196,5 +197,64 @@ a {
 .add-product-btn:hover {
   background-color: white;
   color: #292a33; }
+
+.edit-profile-wrapper {
+  padding: 3%; }
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  padding: 70px;
+  margin: 0 30%;
+  background-color: #292a33; }
+
+.edit-form label {
+  font-size: 20px;
+  font-weight: 600; }
+
+.edit-form input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px; }
+
+.edit-form textarea {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px; }
+
+.artist-name,
+.artist-location,
+.artist-about,
+.add-profilepic {
+  display: flex;
+  flex-direction: column;
+  width: 100%; }
+
+.save-changes-btn {
+  background-color: #f5a288;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 0.3em 2em;
+  border-radius: 50px;
+  text-align: center;
+  width: 100%;
+  border: none;
+  margin-top: 15px; }
+
+.save-changes-btn:hover {
+  background-color: #ee653b; }
 
 /*# sourceMappingURL=style.css.map */

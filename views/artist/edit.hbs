@@ -1,45 +1,40 @@
-<h2>Edit Profile</h2>
+<section class='edit-profile-wrapper'>
 
-{{#with selectedArtist}}
+  {{#with selectedArtist}}
 
-<form action="/artist/edit" method="POST" enctype="multipart/form-data">
+  <form class="edit-form" action="/artist/edit" method="POST" enctype="multipart/form-data">
+    <div class="artist-name">
+      <label for="name">Artist name:</label>
+      <input id="name" type="text" name="name" value={{name}}>
+    </div>
 
-  <div>
-    <label for="avatar">Add profile picture:</label>
-    <input type="file" name="avatar" id="avatar" value={{avatar}} />
-  </div>
+    <div class="artist-location">
+      <label for="city">City:</label>
+      <input id="city" type="text" name="city" value={{city}}>
+      <label for="country">Country:</label>
+      <input id="country" type="text" name="country" value={{country}}>
+    </div>
 
-  <br><br>
+    <div class="artist-about">
+      <label for="about">About you:</label>
+      <textarea name="about" id="about" cols="30" rows="8" placeholder="Tell us a bit about you and your work">{{#if about}}{{about}}{{/if}}
+    </textarea>
+    </div>
 
-  <div>
-    <label for="name">Artist name</label>
-    <input id="name" type="text" name="name" value={{name}}>
-  </div>
+    <div class="add-profilepic">
+      <label class="avatar-label" for="avatar">Upload profile picture:</label>
+      <input type="file" name="avatar" id="avatar" class="inputfile" value={{avatar}} />
+    </div>
+    {{#if errorMessage}}
+    <div class="error-message">{{errorMessage}}</div>
+    {{/if}}
+    {{!-- <br> --}}
+    <button class="save-changes-btn" type="submit">Save changes</button>
+  </form>
 
-  <br>
-  <div>
-    <h3>Location:</h3>
-    <label for="city">City</label>
-    <input id="city" type="text" name="city" value={{city}}>
-    <label for="country">Country</label>
-    <input id="country" type="text" name="country" value={{country}}>
-  </div>
-  <br>
-  <label for="about">About you:</label>
-  <textarea name="about" id="about" cols="30" rows="8"
-    placeholder="Tell us a bit about you and your work">{{#if about}}{{about}}{{/if}}</textarea>
-  <br>
   {{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
+  <p>{{errorMessage}}</p>
   {{/if}}
-  <br>
-  <div>
-    <button type="submit">Save changes</button>
-  </div>
-</form>
 
-{{#if errorMessage}}
-<p>{{errorMessage}}</p>
-{{/if}}
-
-{{/with}}
+  {{/with}}
+</section>
