@@ -5,7 +5,8 @@ const Product = require("../models/Product");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index', {user: req.session.passport.user});
+  const user = req.session.passport ? req.session.passport.user : undefined;
+  res.render('index', {user});
 });
 
 router.get('/categories/:categoryName', (req,res,next) => {
