@@ -170,6 +170,7 @@ a {
 //vesna, products section
 .artist-profile-products {
   padding: 3%;
+  display: flex;
 }
 
 .grid-container {
@@ -244,21 +245,22 @@ a {
 
 .product-view-top {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  margin-right: 2%;
 }
 
-.add-product-btn {
-  background-color: #50d8ad;
+.add-btn {
+  background-color: #43977c;
   font-weight: 600;
   font-size: 1em;
-  padding: 0.1em 1em;
+  padding: 0.4em;
   border-radius: 50px;
   text-align: center;
   width: 150px;
 }
 
-.add-product-btn:hover {
+.add-btn:hover {
   background-color: white;
   color: #292a33;
 }
@@ -276,7 +278,7 @@ a {
   // border: 1px solid white;
   border-radius: 8px;
   padding: 70px;
-  margin: 0 30%;
+  margin: 0 20%;
   background-color: #292a33;
   // position: relative;
   // z-index: 10;
