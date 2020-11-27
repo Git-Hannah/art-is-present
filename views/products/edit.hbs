@@ -1,49 +1,50 @@
-{{#with selectedProduct}}
-<h2>Edit Product</h2>
+<section class="add-product-wrapper">
 
-<form action="/edit/{{_id}}/product" method="POST" enctype="multipart/form-data">
+  {{#with selectedProduct}}
+  <h2>Edit Product:</h2>
 
-  <label for="name">Product title:</label>
-  <input type="text" id="name" name="name" placeholder="Add the name of your product name/service here." value={{name}}>
+  <form class="add-product-form" action="/edit/{{_id}}/product" method="POST" enctype="multipart/form-data">
+    <div class="product-name">
+      <label for="name">Product title:</label>
+      <input type="text" id="name" name="name" value={{name}}>
+    </div>
+    <div class="product-price">
+      <label for="price">Price:</label>
+      <input type="text" id="price" name="price" value={{price}}>
+      {{/with}}
+    </div>
 
-  <br><br>
+    <div class="product-availability">
+      <label for="availability">Availability:</label>
+      <select class="select-css" name="availability" id="availability">
+        {{{availabilityOptions}}}
+      </select>
+    </div>
 
-  <label for="price">Price:</label>
-  <input type="text" id="price" name="price" placeholder="Add the price of your product name/service here."
-    value={{price}}>
+    <div class="product-category">
+      <label for="category">Category:</label>
+      <select class="select-css" name="category" id="availability">
+        {{{categoryOptions}}}
+      </select>
+    </div>
 
-  <br><br>
+    {{#with selectedProduct}}
+
+    <div class="product-description">
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" cols="30" rows="8"
+        placeholder="Describe your product/service here">{{description}}</textarea>
+    </div>
+
+    <div class="add-productimg">
+      <label for="images">Add images:</label>
+      <input type="file" multiple='multiple' name="images" id="images" value={{images}} />
+    </div>
+
+
+    <button class="add-product-btn" type="submit">Save changes</button>
+  </form>
 
   {{/with}}
 
-  <label for="availability">Availability:</label>
-  <select name="availability" id="availability">
-    {{{availabilityOptions}}}
-  </select>
-
-  <br><br>
-
-  <label for="category">Category:</label>
-  <select name="category" id="availability">
-    {{{categoryOptions}}}
-  </select>
-
-  <br><br>
-
-  {{#with selectedProduct}}
-
-  <label for="description">Description:</label>
-  <textarea name="description" id="description" cols="30" rows="8"
-    placeholder="Describe your product/service here">{{description}}</textarea>
-
-  <br><br>
-
-  <label for="images">Add images:</label>
-  <input type="file" multiple='multiple' name="images" id="images" value={{images}} />
-
-
-  <br><br>
-  <button type="submit">Save changes</button>
-</form>
-
-{{/with}}
+</section>

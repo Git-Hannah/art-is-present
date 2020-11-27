@@ -17,10 +17,12 @@
   <header>
     <div class="header-wrapper">
       <div class="top-header">
-        <img class="logo" src="/images/logo.png" alt="logo">
-        <form action="/search/results" method="post">
-          <input type="text" name="query" placeholder="Search presents">
-          <button type='submit'><img style="width:10%;" src="../public/images/logo present.jpg" alt="magnifying glass"></button>
+        <a href="/"><img class="logo" src="/images/logo.png" alt="logo"></a>
+        <form class="search-form" action="/search/results" method="post">
+          <input type="text" name="query" placeholder="Search for presents">
+          <button type="submit">
+            Search
+          </button>
         </form>
         <div>
           {{#if user}}
