@@ -18,7 +18,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; }
+  width: 100%;
+  position: fixed;
+  bottom: 0; }
 
 h6 {
   margin: 0; }
@@ -403,7 +405,7 @@ a {
   padding: 0.3em 2em;
   border-radius: 50px;
   text-align: center;
-  width: 100%;
+  width: 70%;
   border: none;
   margin-top: 15px; }
 
@@ -499,8 +501,7 @@ a {
 .artist-details {
   margin: 0; }
 
-.description,
-.product-links {
+.description {
   margin: 20px 0; }
 
 .artist-details span {
@@ -517,15 +518,15 @@ a {
 
 .product-links {
   font-size: 20px;
-  margin-bottom: 0; }
+  display: flex; }
 
 .product-wrap {
   display: flex;
   flex-direction: column;
   height: 100%; }
 
-.product-links a {
-  padding-right: 5%; }
+.product-links .delete-product-btn {
+  margin-left: 5%; }
 
 .contact-artist:hover {
   text-decoration: underline; }
