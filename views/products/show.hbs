@@ -1,47 +1,59 @@
-{{#with foundProduct}}
-<div class="product-details-container">
+<section class="product-view-wrapper">
+    <div class="product-details-container">
+        <div class="image-container">
+            {{#with foundProduct}}
+            {{!-- <div class="product-img"> --}}
+            {{#each images}}
+            {{!-- <img src={{this[0]}} alt=""> --}}
+            <img src={{this}} alt="">
+            {{/each}}
+            {{!-- </div> --}}
+        </div>
 
-    <div class="vertical-slider-gallery">
-        {{#each images}}
-        <img src={{this}} alt="">
-        {{/each}}
+        <div class="product-info-container">
+            <div class="product-wrap">
+
+                {{#each owner}}
+                <div class="artist-details">
+                    {{!-- {{#if isOwner}} --}}
+
+                    <a href="/artist/show/{{_id}}">
+                        <span class="artist-name">{{name}}</span>
+                    </a>
+                    <a class="contact-artist" href="mailto:{{email}}">Contact Artist</a>
+                    {{!-- {{/if}} --}}
+                </div>
+                {{/each}}
+                <div class="heading">
+                    <h2>{{name}}</h2>
+                    {{/with}}
+                    <h3><strong>{{{price}}}</strong></h3>
+                </div>
+
+                {{#with foundProduct}}
+
+                <p class="availability">{{availability}}</p>
+                {{!-- <div class="product-wrap"> --}}
+
+                <div class="description">
+                    <h4>Description:</h4>
+                    <p><i>{{description}}</i></p>
+                </div>
+
+                {{/with}}
+
+
+                {{#if isOwner}}
+                {{#with foundProduct}}
+                <div class="product-links">
+                    <a href="/edit/{{_id}}/product">Edit</a>
+                    <a href="/delete/{{_id}}/product">Delete</a>
+                </div>
+                <a class="add-btn" href="/add/product">Add more Products</a>
+                {{/with}}
+                {{/if}}
+
+            </div>
+        </div>
     </div>
-
-
-    <div class="horizontal-slider">
-        {{#each images}}
-        <img src={{this}} alt="">
-        {{/each}}
-    </div>
-
-    <div class="infoContainer">
-        <h2>{{name}}</h2>
-        {{/with}}
-
-        <h3>{{{price}}}</h3>
-
-        {{#with foundProduct}}
-
-        <h4>{{availability}}</h4>
-        {{#each owner}}
-        <a href="/artist/show/{{_id}}">
-            <h3 class="artist-name">{{name}}</h3>
-        </a>
-        <a class="Black-Btn" href="mailto:{{email}}">Contact Artist</a>
-        {{/each}}
-        <h4>Description:</h4>
-        <p>{{description}}</p>
-    </div>
-
-</div>
-{{/with}}
-
-{{#if isOwner}}
-{{#with foundProduct}}
-
-<a href="/edit/{{_id}}/product">Edit</a> <br><br>
-<a href="/delete/{{_id}}/product">Delete</a> <br><br>
-<a href="/add/product">Add more Products</a>
-
-{{/with}}
-{{/if}}
+</section>
