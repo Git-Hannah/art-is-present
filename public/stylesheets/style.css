@@ -462,6 +462,9 @@ a {
 .product-view-wrapper {
   padding: 3%; }
 
+.btn-wrap {
+  margin-bottom: 70px; }
+
 .product-details-container {
   background-color: #292a33;
   display: flex;
@@ -512,13 +515,25 @@ a {
 .description h4 {
   margin: 0; }
 
+.product-links {
+  font-size: 20px;
+  margin-bottom: 0; }
+
 .product-wrap {
   display: flex;
   flex-direction: column;
   height: 100%; }
 
-.contact-artist:hover,
-.product-links a:hover {
+.product-links a {
+  padding-right: 5%; }
+
+.contact-artist:hover {
   text-decoration: underline; }
+
+.bottom-product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; }
 
 /*# sourceMappingURL=style.css.map */
