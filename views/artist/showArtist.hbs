@@ -1,0 +1,42 @@
+
+{{#with artist}}
+<section class="artist-profile">
+  <img class="avatar-img" src={{avatar}} alt="avatar">
+  <div class="about-me">
+    <h1>{{name}}</h1>
+
+    <p class="location">
+      <img class="pin-img" src="/images/location-pin.png" alt="location-pin">{{city}}, {{country}}
+    </p>
+    <p class="about-txt">{{about}}</p>
+    <a class="edit-profile-btn" href="mailto:{{email}}">Contact Artist</a>
+  </div>
+</section>
+{{/with}}
+
+<hr class="section-break">
+
+<section class="artist-profile-products">
+  <div class="product-view-top">
+  <h3>{{artist.name}}'s products:</h3>
+  <a class="add-btn" href="/add/product">Add product</a>
+  </div>
+
+  <div class="grid-container">
+    {{#each productList}}
+
+    <div class="product-item">
+      <a href="/show/{{_id}}/product">
+        <img class="product-img" src={{images.[0]}} alt="product-image">
+      </a>
+      <div class="card-bottom-content">
+        <a href="/show/{{_id}}/product">
+          <h3 class="product-name">{{name}}</h3>
+        </a>
+      </div>
+
+    </div>
+    {{/each}}
+
+  </div>
+</section>

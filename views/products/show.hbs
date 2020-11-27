@@ -1,0 +1,50 @@
+{{#with foundProduct}}
+<div class="product-details-container">
+
+    <div class="vertical-slider-gallery">
+        {{#each images}}
+        <img src={{this}} alt="">
+        {{/each}}
+    </div>
+
+
+    <div class="horizontal-slider">
+        {{#each images}}
+        <img src={{this}} alt="">
+        {{/each}}
+    </div>
+
+    <div class="infoContainer">
+      <h2>{{name}}</h2>
+      {{/with}}
+
+      <h3>{{{price}}}</h3>
+
+      {{#with foundProduct}}
+
+      <h4>{{availability}}</h4>
+      {{#each owner}}
+      <a href="/artist/show/{{_id}}"><h3 class="artist-name">{{name}}</h3></a>
+      {{/each}}
+
+      {{!-- {{#unless isOwner}} --}}
+      {{#each owner}}
+      <a class="Black-Btn" href="mailto:{{email}}">Contact Artist</a> 
+      {{/each}}
+      {{!-- {{/unless}} --}}
+      <h4>Description:</h4>
+      <p>{{description}}</p>
+    </div>
+    
+</div>
+{{/with}}
+
+{{#if isOwner}}
+{{#with foundProduct}}
+
+<a href="/edit/{{_id}}/product">Edit</a> <br><br>
+<a href="/delete/{{_id}}/product">Delete</a> <br><br>
+<a href="/add/product">Add more Products</a>
+
+{{/with}}
+{{/if}}

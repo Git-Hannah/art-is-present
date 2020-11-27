@@ -1,0 +1,12 @@
+<h3>Your listings</h3>
+{{#each productList}}
+{{#each images}}
+<img src={{images}} alt="product-image">
+{{/each}}
+
+<h4>{{name}}</h4>
+<a href="/edit/{{_id}}/product">Edit</a>
+<a href="/delete/{{_id}}/product">Delete</a>
+{{/each}}
+
+<a href="/add/product">Add product</a>

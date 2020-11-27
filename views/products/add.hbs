@@ -1,0 +1,52 @@
+{{!-- <h2>Add product</h2> --}}
+<section class="add-product-wrapper">
+
+  <form class="add-product-form" action="/add/product" method="POST" enctype="multipart/form-data">
+    <div class="product-name">
+      <label for="name">Product title:</label>
+      <input type="text" id="name" name="name" {{#if name}}value={{name}}{{/if}}>
+    </div>
+
+    <div class="product-price"></div>
+    <label for="price">Price:</label>
+    <input type="text" id="price" name="price" {{#if price}}value={{price}}{{/if}}>
+    </div>
+
+    <div class="product-availability">
+      <label for="availability">Availability:</label>
+      <select class="select-css" name="availability" id="availability">
+        <option value="available">available</option>
+        <option value="currently unavailable" selected>currently unavailable</option>
+      </select>
+    </div>
+
+    <div class="product-category">
+      <label for="category">Category:</label>
+      <select class="select-css" name="category" id="availability">
+        <option value="Painting">Painting</option>
+        <option value="Drawing">Drawing</option>
+        <option value="Photography">Photography</option>
+        <option value="Performance">Performance</option>
+        <option value="Music">Music</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="product-description">
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" cols="30" rows="8"
+        placeholder="Describe your product/service here">{{#if description}}{{description}}{{/if}}</textarea>
+    </div>
+
+    <div class="add-productimg">
+      <label for="images">Add images:</label>
+      <input type="file" multiple='multiple' name="images" id="images" />
+    </div>
+
+    {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+    {{/if}}
+    <button class="add-product-btn" type="submit">Add product</button>
+  </form>
+
+</section>
