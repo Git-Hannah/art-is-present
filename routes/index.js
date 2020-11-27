@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product");
-const Artist= require("../models/Artist");
+const Artist = require("../models/Artist");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -118,3 +118,4 @@ router.post('/search/results',(req, res, next)=>{
 // })
 
 module.exports = router;
+

@@ -14,26 +14,25 @@ router.get("/add", (req, res, next) => {
 
 router.get("/show/:artistId", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
-  Artist.findById(req.params.artistId)
-    .then((artistFromDB) => {
+  Artist.findById(req.params.artistId).then((artistFromDB) => {
     const artist = artistFromDB;
     console.log(artist, "artist");
-    Product.find({ owner: { $in: artist._id} })
-      .then(productList => {
-      //const isArtist= req.session.passport.user==artist._id;
+    Product.find({ owner: { $in: artist._id } })
+      .then((productList) => {
+        const isArtist = req.session.passport.user === artist._id;
         res.render("artist/showArtist", {
           productList,
           artist,
-          //isArtist,
+          isArtist,
           user,
         });
       })
       .catch((err) => {
         console.log("error from artist profile", err);
         next(err);
-      })
-    })
-})
+      });
+  });
+});
 
 router.get("/show/", (req, res, next) => {
   Artist.findById(req.session.passport.user).then((artist) => {

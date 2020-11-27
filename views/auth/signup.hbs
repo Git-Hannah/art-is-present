@@ -1,26 +1,27 @@
-<h2>Signup here:</h2>
+<section class="signup-wrapper">
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <div>
-    <label for="email">Email</label>
-    <input id="email" type="text" name="email">
-  </div>
+  <h2>Signup here:</h2>
 
-  <div>
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password">
-  </div>
+  <form class="login-form" action="/auth/signup" method="POST" id="form-container">
+    <div class="login-email"> <label for="email">Email:</label>
+      <input id="email" type="text" name="email">
+    </div>
 
-  {{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
-  {{/if}}
+    <div class="login-password">
+      <label for="password">Password:</label>
+      <input id="password" type="password" name="password">
+    </div>
 
-  <div>
-    <button type="sumbit">Create account</button>
-  </div>
+    {{#if errorMessage}}
+    <div class="error-message">{{errorMessage}}</div>
+    {{/if}}
 
+    <button class="login-btn" type="sumbit">Create profile</button>
+
+  </form>
   <p class="account-message">
-    Do you already have a profile?
-    <a href="login">Login</a>
+    Already have a profile?
+    <a href="login">Login here</a>
   </p>
-</form>
+
+</section>

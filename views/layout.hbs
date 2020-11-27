@@ -18,9 +18,11 @@
     <div class="header-wrapper">
       <div class="top-header">
         <a href="/"><img class="logo" src="/images/logo.png" alt="logo"></a>
-        <form action="/search/results" method="post">
-          <input type="text" name="query" placeholder="Search presents">
-          <button type='submit'><img style="width:10%;" src="../public/images/logo present.jpg" alt="magnifying glass"></button>
+        <form class="search-form" action="/search/results" method="post">
+          <input type="text" name="query" placeholder="Search for presents">
+          <button type="submit">
+            Search
+          </button>
         </form>
         <div>
           {{#if user}}
@@ -70,11 +72,9 @@
  --}}
 
   </header>
-  <div class="main">{{{body}}}</div>
-    
-  
-  
-  
+
+  {{{body}}}
+
   <footer>
     <h6>Made by 💛Hortencia & Vesna & Hannah💛</h6>
   </footer>
