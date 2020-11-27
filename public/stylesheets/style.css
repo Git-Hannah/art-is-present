@@ -5,7 +5,10 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #2f303a;
-  color: #ffffff; }
+  color: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; }
 
 header,
 footer {
@@ -16,12 +19,19 @@ footer {
   height: 9vh;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+  flex-shrink: 0; }
 
 h6 {
   margin: 0; }
 
 input {
+  outline: none; }
+
+button {
+  cursor: pointer;
   outline: none; }
 
 .header-wrapper {
@@ -33,18 +43,38 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .top-header a {
+    width: 7%;
+    min-width: 50px;
+    margin-right: 10px; }
 
 .logo {
-  width: 7%;
-  margin-right: 10px; }
+  width: 100%;
+  margin: 0; }
 
-.top-header input {
-  border: none;
+.search-form {
   width: 65%;
+  display: flex;
+  justify-content: space-between; }
+
+.search-form input {
+  width: 100%;
   height: 35px;
   border-radius: 50px;
   font-size: 18px;
-  padding-left: 15px; }
+  padding-left: 15px;
+  border: none; }
+
+.search-form button {
+  margin-left: 10px;
+  font-size: 15px;
+  border-radius: 3px;
+  background-color: #292a33;
+  color: white; }
+
+.search-form button:hover {
+  background-color: white;
+  color: #292a33; }
 
 .logout,
 .your-profile,
@@ -65,7 +95,7 @@ input {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 3% 0 0.5%; }
+  margin: 3% 0 0.9%; }
 
 .categories li {
   margin-right: 1%;
@@ -75,10 +105,10 @@ input {
 
 .categories li:hover {
   background-color: white;
-  color: #292a33; }
+  background-color: #43977c; }
 
 .categories a:hover {
-  color: #292a33; }
+  color: white; }
 
 a {
   text-decoration: none;
@@ -129,7 +159,7 @@ a {
   padding: 0.3em 2em;
   border-radius: 50px;
   text-align: center;
-  width: 200px; }
+  width: 70%; }
 
 .edit-profile-btn:hover {
   background-color: #ee653b; }
@@ -208,7 +238,7 @@ a {
   padding: 0.4em;
   border-radius: 50px;
   text-align: center;
-  width: 150px; }
+  width: 90%; }
 
 .add-btn:hover {
   background-color: white;
@@ -216,15 +246,24 @@ a {
 
 .edit-profile-wrapper,
 .add-product-wrapper,
-.artist-profile-wrapper {
+.artist-profile-wrapper,
+.login-wrapper,
+.signup-wrapper {
   padding: 3%; }
 
 .artist-profile-wrapper h2 {
   text-align: center; }
 
+.signup-wrapper h2 {
+  text-align: center; }
+
+.login-wrapper h2 {
+  text-align: center; }
+
 .edit-form,
 .add-product-form,
-.add-profile-form {
+.add-profile-form,
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -232,6 +271,34 @@ a {
   padding: 70px;
   margin: 0 20%;
   background-color: #292a33; }
+
+.login-email label {
+  font-size: 20px;
+  font-weight: 600; }
+
+.login-email input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px; }
+
+.login-password label {
+  font-size: 20px;
+  font-weight: 600; }
+
+.login-password input {
+  border-radius: 8px;
+  border: 1px solid #f5a288;
+  background-color: #292a33;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 5px 0 5px 15px;
+  margin: 10px 0 20px; }
 
 .edit-form label {
   font-size: 20px;
@@ -322,14 +389,15 @@ a {
 .product-category,
 .product-description,
 .add-productimg,
-.add-artist-name {
+.add-artist-name,
+.login-email,
+.login-password {
   display: flex;
   flex-direction: column;
   width: 100%; }
 
-.save-changes-btn,
-.add-product-btn,
-.create-profile-btn {
+.create-profile-btn,
+.login-btn {
   background-color: #f5a288;
   color: white;
   font-size: 1.2em;
@@ -341,6 +409,19 @@ a {
   border: none;
   margin-top: 15px; }
 
+.save-changes-btn,
+.add-product-btn {
+  background-color: #f5a288;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 0.3em 2em;
+  border-radius: 50px;
+  text-align: center;
+  width: 70%;
+  border: none;
+  margin-top: 15px; }
+
 .save-changes-btn:hover {
   background-color: #ee653b; }
 
@@ -348,6 +429,9 @@ a {
   background-color: #ee653b; }
 
 .create-profile-btn:hover {
+  background-color: #ee653b; }
+
+.login-btn:hover {
   background-color: #ee653b; }
 
 .select-css {
@@ -380,5 +464,90 @@ a {
 
 .select-css option {
   font-weight: normal; }
+
+.account-message {
+  text-align: center; }
+
+.account-message a {
+  color: #f5a288; }
+
+.account-message a:hover {
+  text-decoration: underline; }
+
+.product-view-wrapper {
+  padding: 3%; }
+
+.btn-wrap {
+  margin-bottom: 70px; }
+
+.product-details-container {
+  background-color: #292a33;
+  display: flex;
+  margin: 0 10%;
+  padding: 3%; }
+
+.image-container {
+  width: 50%; }
+
+.image-container img {
+  width: 100%;
+  height: 100%; }
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%; }
+
+.heading h2 {
+  font-size: 40px;
+  margin: 0; }
+
+.heading h3 {
+  font-size: 30px;
+  margin: 0; }
+
+.product-info-container {
+  width: 50%;
+  padding: 0 20px; }
+
+.artist-details {
+  margin: 0; }
+
+.description {
+  margin: 20px 0; }
+
+.artist-details span {
+  font-size: 11px; }
+
+.availability {
+  font-size: 13px; }
+
+.availability,
+.artist-name,
+.description p,
+.description h4 {
+  margin: 0; }
+
+.product-links {
+  font-size: 20px;
+  display: flex; }
+
+.product-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+
+.product-links .delete-product-btn {
+  margin-left: 5%; }
+
+.contact-artist:hover {
+  text-decoration: underline; }
+
+.bottom-product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; }
 
 /*# sourceMappingURL=style.css.map */
