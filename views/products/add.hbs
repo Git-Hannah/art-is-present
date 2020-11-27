@@ -1,4 +1,3 @@
-{{!-- <h2>Add product</h2> --}}
 <section class="add-product-wrapper">
 
   <form class="add-product-form" action="/add/product" method="POST" enctype="multipart/form-data">
@@ -12,6 +11,11 @@
     <input type="text" id="price" name="price" {{#if price}}value={{price}}{{/if}}>
     </div>
 
+    <div class="product-description">
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" cols="30" rows="8"
+        placeholder="Describe your product/service here">{{#if description}}{{description}}{{/if}}</textarea>
+    </div>
     <div class="product-availability">
       <label for="availability">Availability:</label>
       <select class="select-css" name="availability" id="availability">
@@ -29,13 +33,6 @@
         <option value="Performance">Performance</option>
         <option value="Music">Music</option>
       </select>
-    </div>
-    </div>
-
-    <div class="product-description">
-      <label for="description">Description:</label>
-      <textarea name="description" id="description" cols="30" rows="8"
-        placeholder="Describe your product/service here">{{#if description}}{{description}}{{/if}}</textarea>
     </div>
 
     <div class="add-productimg">
