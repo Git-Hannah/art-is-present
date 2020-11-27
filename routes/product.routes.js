@@ -142,13 +142,13 @@ router.get("/show/:id/product", (req, res, next) => {
   Product.findById(req.params.id)
     .populate("owner")
     .then((foundProduct) => {
-      // console.log(req.session.passport.user==foundProduct.owner[0]._id)
-      let isOwner = { isOwner: true };
-      if (req.session.passport.user !== foundProduct.owner[0]._id) {
-        isOwner.isOwner = true;
-      } else {
-        isOwner.isOwner = false;
-      }
+      let isOwner = req.session.passport.user == foundProduct.owner[0]._id;
+      // let isOwner = { isOwner: true };
+      // if (req.session.passport.user !== foundProduct.owner[0]._id) {
+      //   isOwner.isOwner = true;
+      // } else {
+      //   isOwner.isOwner = false;
+      // }
       const price = new Intl.NumberFormat("de-DE", {
         style: "currency",
         currency: "EUR",
