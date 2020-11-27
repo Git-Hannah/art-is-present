@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
 * {
   box-sizing: border-box; }
@@ -56,6 +55,14 @@ button {
   width: 100%;
   margin: 0; }
 
+.top-header input {
+  border: none;
+  width: 65%; }
+  .top-header input a {
+    width: 7%;
+    min-width: 50px;
+    margin-right: 10px; }
+
 .search-form {
   width: 65%;
   display: flex;
@@ -83,36 +90,36 @@ button {
 .logout,
 .your-profile,
 .signup {
-  font-size: 18px;
+  padding: 0 9px;
+  border: 1px solid white;
+  border-radius: 50px;
+  font-size: 15px;
   margin: 0 1em 0; }
 
 .signup:hover {
-  border-bottom: 0.5px solid white; }
+  background-color: white;
+  color: #292a33; }
 
 .logout:hover {
-  border-bottom: 0.5px solid white; }
+  background-color: white;
+  color: #292a33; }
 
 .your-profile:hover {
-  border-bottom: 0.5px solid white; }
+  background-color: white;
+  color: #292a33; }
 
 .categories ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 3% 0 0.9%; }
+  margin: 3% 0 1.5%; }
 
 .categories li {
-  margin-right: 1%;
-  padding: 0 9px;
-  border: 1px solid white;
-  border-radius: 50px; }
+  font-size: 1.2em;
+  margin-right: 3%; }
 
 .categories li:hover {
-  background-color: white;
-  background-color: #43977c; }
-
-.categories a:hover {
-  color: white; }
+  border-bottom: 2px solid white; }
 
 a {
   text-decoration: none;
@@ -171,7 +178,7 @@ a {
 .section-break {
   margin: 0 50px 0; }
 
-.artist-profile-products {
+.artist-profile-products, .flex-container-products {
   padding: 3%;
   display: flex; }
 
@@ -229,7 +236,7 @@ a {
   background-color: white;
   color: #292a33; }
 
-.product-view-top {
+.product-view-top, .info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -242,7 +249,7 @@ a {
   padding: 0.4em;
   border-radius: 50px;
   text-align: center;
-  width: 90%; }
+  width: 150px; }
 
 .add-btn:hover {
   background-color: white;
@@ -422,7 +429,7 @@ a {
   padding: 0.3em 2em;
   border-radius: 50px;
   text-align: center;
-  width: 70%;
+  width: 100%;
   border: none;
   margin-top: 15px; }
 
@@ -468,6 +475,68 @@ a {
 
 .select-css option {
   font-weight: normal; }
+
+.filter-product-btn {
+  background-color: #f5a288;
+  color: white;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 0.3em 1em;
+  border-radius: 50px;
+  text-align: center;
+  width: 80%;
+  border: none;
+  margin-top: 8px; }
+
+.filter-product-btn:hover {
+  background-color: #ee653b; }
+
+.filter-title {
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 10px; }
+
+.filter label {
+  font-size: 0.9em;
+  font-weight: 300; }
+
+.category-title {
+  font-size: 1.5em;
+  font-weight: 300;
+  text-align: left;
+  margin: 0; }
+
+.filter {
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+  margin-left: 1em; }
+
+.filters-container {
+  border-radius: 8px;
+  background-color: #292a33; }
+
+.product-name {
+  margin-top: 0.1em;
+  margin-bottom: 0.3em;
+  font-size: 1.5em; }
+
+.product-owner,
+.product-price,
+.product-availability {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.9em; }
+
+.product-price {
+  font-weight: bolder;
+  font-size: 1em; }
+
+.product-owner {
+  font-style: italic; }
+
+.search-results-title {
+  font-size: 2.5em;
+  margin: 1.2em 3em 0.3em 3em; }
 
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/hero-image.jpg");
@@ -516,6 +585,7 @@ a {
   font-size: 2rem;
   margin-top: 2em;
   margin-bottom: 1em; }
+
 .account-message {
   text-align: center; }
 

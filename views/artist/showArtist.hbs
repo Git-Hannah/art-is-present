@@ -1,40 +1,42 @@
 
 {{#with artist}}
 <section class="artist-profile">
-  <div class="avatar">
-    <img class="avatar-img" src={{avatar}} alt="avatar">
+  <img class="avatar-img" src={{avatar}} alt="avatar">
+  <div class="about-me">
+    <h1>{{name}}</h1>
+
+    <p class="location">
+      <img class="pin-img" src="/images/location-pin.png" alt="location-pin">{{city}}, {{country}}
+    </p>
+    <p class="about-txt">{{about}}</p>
+    <a class="edit-profile-btn" href="mailto:{{email}}">Contact Artist</a>
   </div>
-  <div>
-    <h3>{{name}}</h3>
-    <p>{{city}}, {{country}}</p>
-    <h4>About me:</h4>
-    <p>{{about}}</p>
-  </div>
-  {{!-- {{#if isArtist}} --}}
-  {{!-- <a href="/artist/edit">Edit profile</a> --}}
-  {{!-- <a href="/auth/logout">Log out</a>  I commented this 'cause now is in the header --}}
-  {{!-- {{else}} --}}
-  <a href="mailto:{{email}}">Contact Artist</a>
-  {{!-- {{/if}} --}}
 </section>
 {{/with}}
 
+<hr class="section-break">
+
 <section class="artist-profile-products">
-  {{!-- {{#if isArtist}} --}}
+  <div class="product-view-top">
   <h3>{{artist.name}}'s products:</h3>
-  {{!-- {{else}} --}}
-  {{!-- <h3>{{name}}'s products:</h3> --}}
-  {{!-- {{/if}} --}}
-  {{!-- <a href="/add/product">Add product</a> --}}
-  {{#each productList}}
-  <a href="/show/{{_id}}/product"><img src={{images.[0]}} alt="product-image"></a>
-  <a href="/show/{{_id}}/product">
-    <h4>{{name}}</h4>
-  </a>
+  <a class="add-btn" href="/add/product">Add product</a>
+  </div>
 
-  {{!-- <a href="/edit/{{_id}}/product">Edit</a>
-  <a href="/delete/{{_id}}/product">Delete</a> --}}
-  <br>
-  {{/each}}
+  <div class="grid-container">
+    {{#each productList}}
 
+    <div class="product-item">
+      <a href="/show/{{_id}}/product">
+        <img class="product-img" src={{images.[0]}} alt="product-image">
+      </a>
+      <div class="card-bottom-content">
+        <a href="/show/{{_id}}/product">
+          <h3 class="product-name">{{name}}</h3>
+        </a>
+      </div>
+
+    </div>
+    {{/each}}
+
+  </div>
 </section>

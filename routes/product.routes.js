@@ -137,6 +137,7 @@ router.post(
       });
   }
 );
+
 router.get("/show/:id/product", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
   Product.findById(req.params.id)
@@ -153,7 +154,7 @@ router.get("/show/:id/product", (req, res, next) => {
         style: "currency",
         currency: "EUR",
       }).format(foundProduct.price);
-      console.log("-----------------is owner", isOwner);
+      // console.log(isOwner);
       res.render("products/show", { foundProduct, price, isOwner, user });
 
       // router.get("/show/:id/product", (req, res, next) => {

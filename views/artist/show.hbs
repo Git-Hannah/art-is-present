@@ -20,21 +20,14 @@
 
 <hr class="section-break">
 
-{{!-- <section class="artist-profile-products">
-  <div class="product-view-top">
-    <h3>Your listings</h3>
-    <a class="add-btn" href="/add/product">Add product</a>
-  </div> --}}
-
-
 <section class="artist-profile-products">
-  {{#if isArtist}}
   <div class="product-view-top">
-    <h3>Your listings</h3>
-    {{else}}
-    <h3>{{name}}'s products:</h3>
-    {{/if}}
-    <a class="add-btn" href="/add/product">Add product</a>
+  {{#if isArtist}}
+  <h3>Your listings:</h3>
+  {{else}}
+  <h3>{{name}}'s products:</h3>
+  {{/if}}
+  <a class="add-btn" href="/add/product">Add product</a>
   </div>
 
   <div class="grid-container">

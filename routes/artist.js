@@ -38,7 +38,8 @@ router.get("/show/", (req, res, next) => {
   Artist.findById(req.session.passport.user).then((artist) => {
     Product.find({ owner: { $in: req.session.passport.user } })
 
-      .then((productList) => {
+    .then((productList) => {
+      const isArtist= req.session.passport.user==artist._id;
         const user = req.session.passport
           ? req.session.passport.user
           : undefined;
@@ -46,7 +47,8 @@ router.get("/show/", (req, res, next) => {
         res.render("artist/show", {
           productList,
           artist,
-          user,
+          isArtist,
+          user
         });
       })
       .catch((err) => {
