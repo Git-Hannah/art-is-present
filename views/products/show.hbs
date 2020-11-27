@@ -1,4 +1,6 @@
 <section class="product-view-wrapper">
+    {{log isOwner}}
+
     {{#if isOwner}}
     <div class="btn-wrap">
         <a class="add-btn" href="/add/product">Add more Products</a>
@@ -18,17 +20,19 @@
         <div class="product-info-container">
             <div class="product-wrap">
 
-                {{#each owner}}
+                {{!-- {{#each owner}} --}}
                 <div class="artist-details">
-                    {{!-- {{#if isOwner}} --}}
+
+                    {{#if ../isOwner.isOwner}}
+                    {{log "is this the owner" isOwner.isOwner}}
 
                     <a href="/artist/show/{{_id}}">
                         <span class="artist-name">{{name}}</span>
                     </a>
                     <a class="contact-artist" href="mailto:{{email}}">Contact Artist</a>
-                    {{!-- {{/if}} --}}
+                    {{/if}}
                 </div>
-                {{/each}}
+                {{!-- {{/each}} --}}
                 <div class="heading">
                     <h2>{{name}}</h2>
                     {{/with}}

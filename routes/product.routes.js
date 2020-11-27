@@ -8,16 +8,16 @@ const { uploadCloud, cloudinary } = require("../configs/cloudinary.config");
 router.get("/edit/:id/product", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
   Product.findById(req.params.id)
-    .then(selectedProduct=>{
+    .then((selectedProduct) => {
       //console.log(selectedProduct);
-      let selectedAvailability='';
-      let availabilityOptions='';
-      const availabilityArr=['available','currently unavailable'];
-      availabilityArr.forEach(el=>{
-        selectedAvailability= el===selectedProduct.availability ? 'selected':'';
-        availabilityOptions+=`<option value="${el}" ${selectedAvailability}>${el}</option>`;
-      })
-    
+      let selectedAvailability = "";
+      let availabilityOptions = "";
+      const availabilityArr = ["available", "currently unavailable"];
+      availabilityArr.forEach((el) => {
+        selectedAvailability =
+          el === selectedProduct.availability ? "selected" : "";
+        availabilityOptions += `<option value="${el}" ${selectedAvailability}>${el}</option>`;
+      });
 
       let categoryOptions = "";
       let selectedCategory = "";
@@ -142,12 +142,18 @@ router.get("/show/:id/product", (req, res, next) => {
   Product.findById(req.params.id)
     .populate("owner")
     .then((foundProduct) => {
-      //console.log(req.session.passport.user==foundProduct.owner[0]._id)
-      const isOwner = req.session.passport.user == foundProduct.owner[0]._id;
+      // console.log(req.session.passport.user==foundProduct.owner[0]._id)
+      let isOwner = { isOwner: true };
+      if (req.session.passport.user !== foundProduct.owner[0]._id) {
+        isOwner.isOwner = true;
+      } else {
+        isOwner.isOwner = false;
+      }
       const price = new Intl.NumberFormat("de-DE", {
         style: "currency",
         currency: "EUR",
       }).format(foundProduct.price);
+      console.log("-----------------is owner", isOwner);
       res.render("products/show", { foundProduct, price, isOwner, user });
 
       // router.get("/show/:id/product", (req, res, next) => {

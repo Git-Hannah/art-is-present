@@ -9,6 +9,8 @@ body {
   // background-image: linear-gradient(to bottom right, #2f303a, #64667c);
   color: #ffffff;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header,
@@ -23,9 +25,11 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  margin-top: auto;
+  flex-shrink: 0;
+  // position: fixed;
+  // bottom: 0;
+  // left: 0;
 }
 
 h6 {
@@ -471,10 +475,22 @@ a {
   width: 100%;
 }
 
-.save-changes-btn,
-.add-product-btn,
 .create-profile-btn,
 .login-btn {
+  background-color: #f5a288;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 0.3em 2em;
+  border-radius: 50px;
+  text-align: center;
+  width: 100%;
+  border: none;
+  margin-top: 15px;
+}
+
+.save-changes-btn,
+.add-product-btn {
   background-color: #f5a288;
   color: white;
   font-size: 1.2em;
