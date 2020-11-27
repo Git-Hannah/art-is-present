@@ -6,7 +6,12 @@ const Artist = require("../models/Artist");
 /* GET home page */
 router.get("/", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
-  res.render("index", { user });
+  Product.aggregate([ { $sample: { size: 6 } } ])
+    .then(randomProducts=>{
+      res.render("index", { user, randomProducts});
+      //console.log(randomProducts)
+    })
+    .catch(err=>next(err))
 });
 
 router.get("/categories/:categoryName", (req, res, next) => {
