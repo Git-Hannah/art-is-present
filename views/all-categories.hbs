@@ -1,5 +1,5 @@
 <div>
-    <h2>All Products</h2>
+    <h2 class="search-results-title">Search Results</h2>
 
     {{!-- <div class="filter">
         <h3>Price</h3>
@@ -32,21 +32,21 @@
 
 </div> --}}
 
-<div class="product-grid">
+<div class="grid-container">
 
-    {{#each productList}}
+    {{#each searchedProducts}}
         <a href="/show/{{_id}}/product">
-            <div class="product-container">
+            <div class="product-item">
                 <div class="image-container">
-                    <img style="width: 10%" src={{images.[0]}} alt="product-image">
+                    <img class="product-img" src={{images.[0]}} alt="product-image">
                 </div>
-                <div class="product-details">
-                    <h2>{{name}}</h2>
-                    {{#each owner }}
-                        <p>{{ name }}</p>
-                    {{/each}}
-                   <p >{{ price }}€</p>
-                   <p>{{ availability }}</p>
+                <div class="card-bottom-content">
+                    <span class="product-name">{{name}}</span>
+                        <span class="product-price">{{ price }}€</span>
+                        {{#each owner }}
+                            <p class="product-owner">by {{ name }}</p>
+                        {{/each}}
+                        <p class="product-availability">{{ availability }}</p>
                 </div>
             </div>
         </a>

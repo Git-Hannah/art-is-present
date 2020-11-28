@@ -137,23 +137,18 @@ router.post(
       });
   }
 );
+
 router.get("/show/:id/product", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
   Product.findById(req.params.id)
     .populate("owner")
     .then((foundProduct) => {
-      let isOwner = req.session.passport.user == foundProduct.owner[0]._id;
-      // let isOwner = { isOwner: true };
-      // if (req.session.passport.user !== foundProduct.owner[0]._id) {
-      //   isOwner.isOwner = true;
-      // } else {
-      //   isOwner.isOwner = false;
-      // }
+      const isOwner = req.session.passport.user == foundProduct.owner[0]._id;
       const price = new Intl.NumberFormat("de-DE", {
         style: "currency",
         currency: "EUR",
       }).format(foundProduct.price);
-      console.log("-----------------is owner", isOwner);
+      // console.log(isOwner);
       res.render("products/show", { foundProduct, price, isOwner, user });
 
       // router.get("/show/:id/product", (req, res, next) => {

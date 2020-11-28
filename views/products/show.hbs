@@ -1,6 +1,5 @@
 <section class="product-view-wrapper">
     {{log isOwner}}
-
     {{#if isOwner}}
     {{#with foundProduct}}
     <div class="btn-wrap">
@@ -15,15 +14,11 @@
             <img src={{this}} alt="">
             {{/each}}
         </div>
-
         <div class="product-info-container">
             <div class="product-wrap">
-
                 {{#each owner}}
                 <div class="artist-details">
-
                     {{log "is this the owner" isOwner.isOwner}}
-
                     <a href="/artist/show/{{_id}}">
                         <span class="artist-name">{{name}}</span>
                     </a>
@@ -35,9 +30,7 @@
                     {{/with}}
                     <h3><strong>{{{price}}}</strong></h3>
                 </div>
-
                 {{#with foundProduct}}
-
                 <p class="availability">{{availability}}</p>
                 {{!-- <div class="product-wrap"> --}}
                 <div class="bottom-product-card">
@@ -45,10 +38,7 @@
                         <h4>Description:</h4>
                         <p><i>{{description}}</i></p>
                     </div>
-
                     {{/with}}
-
-
                     {{#if isOwner}}
                     {{#with foundProduct}}
                     <div class="product-links">

@@ -1,9 +1,39 @@
-<div class="banner">
-
-  <h1><img class="index-header" src="/images/hero-image.jpg" alt="Art is Present hero image">Art is Present</h1>
-  <br>
-  <h2>Give beautiful gifts of art <br> and support local artists</h2>
-
+<div class="hero-image hero-text">
+  <div>
+    <h1>Art is Present</h1>
+    <br>
+    <h2>Give beautiful gifts of art <br>
+      and support local artists</h2>
+  </div>
 </div>
-
+<br>
+<div class="intro-text">
+  <p>
+    Looking for a present?
+    A unique, beautiful, mindfully crafted piece of art?
+    All presents are creations of local artists
+    who you can contact directly!
+  </p>
 </div>
+<section class="random-products">
+  <h2 class="random-products-title">Some inspiration</h2>
+  <div class="grid-container">
+    {{#each randomProducts}}
+    <a href="/show/{{_id}}/product">
+      <div class="product-item">
+        <div class="image-container">
+          <img class="product-img" src={{images.[0]}} alt="product-image">
+        </div>
+        <div class="card-bottom-content">
+          <span class="product-name">{{name}}</span>
+          <span class="product-price">{{ price }}€</span>
+          {{!-- {{#each owner }}
+      <p class="product-owner">by {{ name }}</p>
+      {{/each}} --}}
+          <p class="product-availability">{{ availability }}</p>
+        </div>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+</section>
