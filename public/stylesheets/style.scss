@@ -1,3 +1,12 @@
+// Poiret One:
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+
+// Dancing Script:
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+// Philosopher:
+@import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -27,9 +36,11 @@ footer {
   width: 100%;
   margin-top: auto;
   flex-shrink: 0;
-  // position: fixed;
-  // bottom: 0;
-  // left: 0;
+}
+
+footer a:hover {
+  color: #fdcb58;
+  text-decoration: underline;
 }
 
 h6 {
@@ -148,24 +159,70 @@ button {
 .categories li {
   font-size: 1.2em;
   margin-right: 3%;
-  // padding: 0 9px;
-  // border: 1px solid white;
-  // border-radius: 50px;
 }
 
 .categories li:hover {
   border-bottom: 2px solid white;
-  // background-color: white;
-  // color: #292a33;
 }
-
-// .categories a:hover {
-//   color: #292a33;
-// }
 
 a {
   text-decoration: none;
   color: white;
+}
+
+//Hannahs Styles:
+// index view:
+.hero-image {
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  //   url("/images/hero-image.jpg");
+  background-image: url("/images/hero-image.jpg");
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+}
+
+.hero-text {
+  text-align: center;
+  padding: 3%;
+  color: whitesmoke;
+}
+.hero-text h1 {
+  font-family: Dancing Script;
+  font-size: 120px;
+  font-weight: 900;
+  margin: 1%;
+  letter-spacing: 0.2em;
+}
+.hero-text h2 {
+  font-family: Philosopher;
+  font-size: 40px;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+.intro-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.intro-text p {
+  font-size: 1.7em;
+  line-height: 2.2;
+  margin: 5% 20%;
+  text-align: center;
+  font-weight: lighter;
+}
+.random-products {
+  border-top: 1px solid white;
+  margin: 2em 3em;
+}
+.random-products-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */
@@ -253,7 +310,6 @@ a {
 
 .product-item {
   max-height: 100%;
-  // box-shadow: 0px 5px 10px rgba(138, 136, 136, 0.74);
   background-color: #292a33;
   border-radius: 8px;
   display: flex;
@@ -269,7 +325,8 @@ a {
 }
 
 .product-item:hover {
-  border: 0.5px solid #7d7c80a1;
+  // border: 0.5px solid #7d7c80a1;
+  box-shadow: 0px 5px 10px rgba(83, 82, 82, 0.74);
 }
 
 .image-container .product-img {
@@ -664,71 +721,6 @@ a {
   margin: 1.2em 3em 0.3em 3em;
 }
 
-//Hannahs Styles:
-// index view:
-.hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/images/hero-image.jpg");
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  margin: 0;
-}
-
-// Poiret One:
-@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
-
-// Dancing Script:
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
-
-// Philosopher:
-@import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
-
-.hero-text {
-  text-align: center;
-  padding: 3%;
-  color: whitesmoke;
-}
-.hero-text h1 {
-  font-family: Dancing Script;
-  font-size: 120px;
-  font-weight: 900;
-  margin: 1%;
-  letter-spacing: 0.2em;
-}
-.hero-text h2 {
-  font-family: Philosopher;
-  font-size: 40px;
-  letter-spacing: 0.2em;
-  line-height: 1.5;
-}
-.intro-text {
-  display: flex;
-  // height: 400px;
-  // width: 60%;
-  justify-content: center;
-  align-items: center;
-}
-.intro-text p {
-  font-size: 30px;
-  // letter-spacing: 0.05em;
-  line-height: 2.2;
-  // padding: 0.6em 1.4em 0.5em 0.8em;
-  margin: 0 20%;
-  text-align: center;
-}
-.random-products {
-  border-top: 1px solid white;
-  margin: 2em 3em;
-}
-.random-products-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 2em;
-  margin-bottom: 1em;
-}
 .account-message {
   text-align: center;
 }
