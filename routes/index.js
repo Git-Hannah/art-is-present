@@ -1,12 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product");
-const Artist= require("../models/Artist");
+const Artist = require("../models/Artist");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
-  res.render("index", { user });
+  Product.aggregate([ { $sample: { size: 6 } } ])
+    //.populate("owner")
+    .then(randomProducts=>{
+      res.render("index", { user, randomProducts});
+      //console.log(randomProducts)
+    
+    })
+    .catch(err=>next(err))
 });
 
 router.get("/categories/:categoryName", (req, res, next) => {
@@ -63,10 +70,13 @@ router.post('/search/results',(req, res, next)=>{
   const query=req.body.query;
   const user = req.session.passport ? req.session.passport.user : undefined;
 
-  Product.find({name:query})//change the query to search for products which name or description contain the string in the search bar
+  Product.find().populate("owner")//change the query to search for products which name or description contain the string in the search bar
     .then(productList=>{
-      //console.log(productList)
-      res.render('all-categories',{productList,user})
+      const searchedProducts = productList.filter(product => {
+        return product.name.toLowerCase().includes(query.toLowerCase()) || product.description.toLowerCase().includes(query.toLowerCase()) 
+      })
+      //console.log(searchedProducts)
+      res.render('all-categories',{user, searchedProducts})
     })
     .catch(err=>next(err))
 })
@@ -108,3 +118,4 @@ router.post('/search/results',(req, res, next)=>{
 // })
 
 module.exports = router;
+

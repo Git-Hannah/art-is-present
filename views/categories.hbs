@@ -1,55 +1,58 @@
-<div>
-    <h2>{{categoryName}}</h2>
+<div class="flex-container-products">
 
-    <div class="filter">
-        <h3>Price</h3>
-        <form action="/categories/{{categoryName}}" method="POST">
-         
-            <input type="radio" id="lt-20" name="price" value="0-20">
-            <label for="lt-20">Under 20€</label><br>
-            <input type="radio" id="btw-20-and-50" name="price" value="20-50">
-            <label for="btw-20-and-50">20€ to 50€</label><br>
-            <input type="radio" id="btw-50-and-100" name="price" value="50-100">
-            <label for="btw-50-and-100">50€ to 100€</label><br>
-            <input type="radio" id="morethan-100" name="price" value="100-">
-            <label for="morethan-100">Over 100€</label><br>
-            <button name="price" type="submit">Filter</button>
-        </form> 
-    </div>
-
-    <div class="filter">
-        <h3>Availability</h3>
-        <form action="/categories/{{categoryName}}" method="POST">
-         
-            <input type="radio" id="available" name="availability" value="available">
-            <label for="available">Available</label><br>
-            <input type="radio" id="currently unavailable" name="availability" value="currently unavailable">
-            <label for="currently unavailable">Currently unavailable</label><br>
-            <button name="availability" type="submit">Filter</button>
-        </form> 
-    </div>
-
-
-</div>
-
-<div class="product-grid">
-
-    {{#each categoryProductList}}
-        <a href="/show/{{_id}}/product">
-            <div class="product-container">
-                <div class="image-container">
-                    <img style="width: 10%" src={{images.[0]}} alt="product-image">
-                </div>
-                <div class="product-details">
-                    <h2>{{name}}</h2>
-                    {{#each owner }}
-                        <p>{{ name }}</p>
-                    {{/each}}
-                   <p >{{ price }}€</p>
-                   <p>{{ availability }}</p>
-                </div>
+    <div class="info-container">
+        <div class="category-title"><h2>{{categoryName}}</h2></div>
+        <div class="filters-container">
+            <div class="filter">
+                <h4 class="filter-title">Price</h4>
+                <form action="/categories/{{categoryName}}" method="POST">
+                
+                    <input type="radio" id="lt-20" name="price" value="0-20">
+                    <label for="lt-20">Under 20€</label><br>
+                    <input type="radio" id="btw-20-and-50" name="price" value="20-50">
+                    <label for="btw-20-and-50">20€ to 50€</label><br>
+                    <input type="radio" id="btw-50-and-100" name="price" value="50-100">
+                    <label for="btw-50-and-100">50€ to 100€</label><br>
+                    <input type="radio" id="morethan-100" name="price" value="100-">
+                    <label for="morethan-100">Over 100€</label><br>
+                    <button class="filter-product-btn" name="price" type="submit">Filter</button>
+                </form> 
             </div>
-        </a>
-    {{/each}}
+
+            <div class="filter">
+                <h4 class="filter-title" >Availability</h4>
+                <form action="/categories/{{categoryName}}" method="POST">
+                
+                    <input type="radio" id="available" name="availability" value="available">
+                    <label for="available">Available</label><br>
+                    <input type="radio" id="currently unavailable" name="availability" value="currently unavailable">
+                    <label for="currently unavailable">Currently unavailable</label><br>
+                    <button class="filter-product-btn" name="availability" type="submit">Filter</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+
+        {{#each categoryProductList}}
+            <a href="/show/{{_id}}/product">
+                <div class="product-item">
+                    <div class="image-container">
+                        <img class="product-img" src={{images.[0]}} alt="product-image">
+                    </div>
+                    <div class="card-bottom-content">
+                        <span class="product-name">{{name}}</span>
+                        <span class="product-price">{{ price }}€</span>
+                        {{#each owner }}
+                            <p class="product-owner">by {{ name }}</p>
+                        {{/each}}
+                        <p class="product-availability">{{ availability }}</p>
+                    </div>
+                </div>
+            </a>
+        {{/each}}
+
+    </div>
 
 </div>
