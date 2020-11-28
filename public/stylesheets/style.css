@@ -142,7 +142,8 @@ a {
   margin-left: 6vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  width: 100%; }
 
 .about-me h1 {
   font-size: 50px;
@@ -170,7 +171,7 @@ a {
   padding: 0.3em 2em;
   border-radius: 50px;
   text-align: center;
-  width: 70%; }
+  width: 250px; }
 
 .edit-profile-btn:hover {
   background-color: #ee653b; }
@@ -189,7 +190,8 @@ a {
   max-width: 1024px;
   margin: 0 auto;
   padding: 22px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px)); }
 
 .product-item {
   max-height: 100%;
@@ -197,12 +199,16 @@ a {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  height: 100%; }
+
+.product-item .product-img {
+  width: 100%; }
 
 .product-item:hover {
   border: 0.5px solid #7d7c80a1; }
 
-.product-img {
+.image-container .product-img {
   width: 100%;
   margin: 0; }
 
@@ -229,11 +235,9 @@ a {
   display: flex;
   justify-content: space-between; }
 
-.edit-product-btn:hover {
-  background-color: white;
-  color: #292a33; }
-
-.delete-product-btn:hover {
+.edit-product-btn:hover,
+.delete-product-btn:hover,
+.filter-product-btn:hover {
   background-color: white;
   color: #292a33; }
 
@@ -264,12 +268,9 @@ a {
 .signup-wrapper {
   padding: 3%; }
 
-.artist-profile-wrapper h2 {
-  text-align: center; }
-
-.signup-wrapper h2 {
-  text-align: center; }
-
+.artist-profile-wrapper h2,
+.add-product-wrapper h2,
+.signup-wrapper h2,
 .login-wrapper h2 {
   text-align: center; }
 
@@ -479,19 +480,15 @@ a {
   font-weight: normal; }
 
 .filter-product-btn {
-  background-color: #f5a288;
+  background-color: #43977c;
   color: white;
   font-size: 0.9em;
   font-weight: 500;
   padding: 0.3em 1em;
   border-radius: 50px;
   text-align: center;
-  width: 80%;
   border: none;
   margin-top: 8px; }
-
-.filter-product-btn:hover {
-  background-color: #ee653b; }
 
 .filter-title {
   font-size: 1em;
@@ -509,13 +506,12 @@ a {
   margin: 0; }
 
 .filter {
-  margin-bottom: 2em;
-  margin-top: 0.5em;
-  margin-left: 1em; }
+  margin: 0.5em 1em; }
 
 .filters-container {
   border-radius: 8px;
-  background-color: #292a33; }
+  background-color: #292a33;
+  padding: 0.5em 1em; }
 
 .product-name {
   margin-top: 0.1em;
@@ -610,11 +606,11 @@ a {
   padding: 3%; }
 
 .image-container {
-  width: 50%; }
+  width: 50%;
+  object-fit: contain; }
 
 .image-container img {
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
 
 .heading {
   display: flex;
