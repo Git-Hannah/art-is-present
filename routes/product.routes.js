@@ -148,7 +148,9 @@ router.get("/show/:id/product", (req, res, next) => {
         style: "currency",
         currency: "EUR",
       }).format(foundProduct.price);
-      // console.log(isOwner);
+      console.log("-------isowner", isOwner);
+      console.log("*************foundproduct", foundProduct);
+
       res.render("products/show", { foundProduct, price, isOwner, user });
 
       // router.get("/show/:id/product", (req, res, next) => {

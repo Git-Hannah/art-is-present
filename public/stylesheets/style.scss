@@ -156,18 +156,69 @@ button {
   // font-size: 15px;
 }
 
+// a {
+//   color: #fff;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   letter-spacing: 0.15em;
+
+//   display: inline-block;
+//   padding: 15px 20px;
+//   position: relative;
+// }
+// a:after {
+//   background: none repeat scroll 0 0 transparent;
+//   bottom: 0;
+//   content: "";
+//   display: block;
+//   height: 2px;
+//   left: 50%;
+//   position: absolute;
+//   background: #fff;
+//   transition: width 0.3s ease 0s, left 0.3s ease 0s;
+//   width: 0;
+// }
+// a:hover:after {
+//   width: 100%;
+//   left: 0;
+// }
 .categories li {
-  font-size: 1.2em;
-  margin-right: 3%;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  /* display: inline-block; */
+  padding: 15px 20px;
+  position: relative;
 }
 
-.categories li:hover {
-  border-bottom: 2px solid white;
+.categories li:after {
+  // background: none repeat scroll 0 0 transparent;
+  bottom: 5px;
+  content: "";
+  // display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.categories li:hover:after {
+  border-bottom: 0.3px solid white;
+  // transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 100%;
+  left: 0;
 }
 
 a {
   text-decoration: none;
   color: white;
+  transition: ease-in-out 0.3s;
+}
+
+button {
+  transition: ease-in-out 0.3s;
 }
 
 //Hannahs Styles:
@@ -218,11 +269,13 @@ a {
   border-top: 1px solid white;
   margin: 2em 3em;
 }
+
 .random-products-title {
   text-align: center;
   font-size: 2rem;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  margin: 2.8em;
+  // margin-top: 2em;
+  // margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */
@@ -327,6 +380,7 @@ a {
 .product-item:hover {
   // border: 0.5px solid #7d7c80a1;
   box-shadow: 0px 5px 10px rgba(83, 82, 82, 0.74);
+  transition: ease-in-out 0.3s;
 }
 
 .image-container .product-img {
@@ -360,6 +414,7 @@ a {
 .links {
   display: flex;
   justify-content: space-between;
+  margin-top: 2em;
 }
 
 .edit-product-btn:hover,
@@ -590,18 +645,9 @@ a {
   margin-top: 15px;
 }
 
-.save-changes-btn:hover {
-  background-color: #ee653b;
-}
-
-.add-product-btn:hover {
-  background-color: #ee653b;
-}
-
-.create-profile-btn:hover {
-  background-color: #ee653b;
-}
-
+.save-changes-btn:hover,
+.add-product-btn:hover,
+.create-profile-btn:hover,
 .login-btn:hover {
   background-color: #ee653b;
 }
