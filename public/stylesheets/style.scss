@@ -371,6 +371,8 @@ button {
 
 .product-item .product-img {
   width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .product-item:hover {
@@ -733,7 +735,7 @@ button {
 .filters-container {
   border-radius: 8px;
   background-color: #292a33;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em 1.7em;
 }
 .product-name {
   margin-top: 0.1em;

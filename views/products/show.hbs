@@ -1,5 +1,5 @@
 <section class="product-view-wrapper">
-    {{log isOwner}}
+    {{!-- {{log isOwner}} --}}
     {{#if isOwner}}
     {{#with foundProduct}}
     <div class="btn-wrap">
@@ -7,27 +7,46 @@
     </div>
     {{/with}}
     {{/if}}
+
     <div class="product-details-container">
+
         <div class="image-container">
             {{#with foundProduct}}
             {{#each images}}
             <img src={{this}} alt="">
             {{/each}}
+
         </div>
+
         <div class="product-info-container">
+
             <div class="product-wrap">
+
                 {{#each owner}}
                 <div class="artist-details">
                     <a href="/artist/show/{{_id}}">
                         <span class="artist-name">{{name}}</span>
                     </a>
+                    {{#with foundProduct}}
+
+                    {{#if isOwner}}
+                    {{log isOwner}}
+
                     <a class="contact-artist" href="mailto:{{email}}">Contact Artist</a>
+                    {{/if}}
+                    {{/with}}
                 </div>
+
                 {{/each}}
+
                 <div class="heading">
+
                     <h2>{{name}}</h2>
                     {{/with}}
+                    {{!-- {{log isOwner}} --}}
+
                     <h3><strong>{{{price}}}</strong></h3>
+
                 </div>
                 {{#with foundProduct}}
                 <p class="availability">{{availability}}</p>
@@ -37,6 +56,7 @@
                         <h4>Description:</h4>
                         <p><i>{{description}}</i></p>
                     </div>
+
                     {{/with}}
                     {{#if isOwner}}
                     {{#with foundProduct}}
@@ -47,7 +67,12 @@
                     {{/with}}
                     {{/if}}
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+
 </section>
