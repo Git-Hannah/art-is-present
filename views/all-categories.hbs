@@ -37,8 +37,14 @@
         {{#each searchedProducts}}
         <a href="/show/{{_id}}/product">
             <div class="product-item">
+                <figure class="product-img-wrap">
+
+                    {{!-- <div class="image-container"> --}}
+                    <img class="product-img" src={{images.[0]}} alt="product-image">
+                    {{!-- </div> --}}
+                </figure>
                 {{!-- <div class="image-container"> --}}
-                <img class="product-img" src={{images.[0]}} alt="product-image">
+                {{!-- <img class="product-img" src={{images.[0]}} alt="product-image"> --}}
                 {{!-- </div> --}}
                 <div class="card-bottom-content">
                     <span class="product-name">{{name}}</span>
