@@ -275,7 +275,20 @@ button {
   font-size: 2rem;
   margin: 2.8em;
 }
+//------------------------------------------------------------
+.product-img-wrap {
+  height: 280px; /* you can try different values here */
+}
+.product-img-wrap img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
+figure {
+  margin: 0;
+}
+//------------------------------------------------------------
 /*# sourceMappingURL=style.css.map */
 
 //vesna, show artist view
@@ -741,6 +754,7 @@ button {
   margin-top: 0.1em;
   margin-bottom: 0.3em;
   font-size: 1.5em;
+  min-height: 5rem;
 }
 
 .product-owner,

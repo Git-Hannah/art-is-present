@@ -34,8 +34,16 @@
     {{#each productList}}
 
     <div class="product-item">
+
+
       <a href="/show/{{_id}}/product">
-        <img class="product-img" src={{images.[0]}} alt="product-image">
+        <figure class="product-img-wrap">
+
+          {{!-- <div class="image-container"> --}}
+          <img class="product-img" src={{images.[0]}} alt="product-image">
+          {{!-- </div> --}}
+        </figure>
+        {{!-- <img class="product-img" src={{images.[0]}} alt="product-image"> --}}
       </a>
       <div class="card-bottom-content">
         <a href="/show/{{_id}}/product">
