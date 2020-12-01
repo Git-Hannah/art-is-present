@@ -22,7 +22,6 @@ const artistSchema = new Schema({
   },
   city: {
     type: String,
-    // country: String,
   },
   country: {
     type: String,

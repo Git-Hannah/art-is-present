@@ -1,3 +1,12 @@
+// Poiret One:
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+
+// Dancing Script:
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+// Philosopher:
+@import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -27,9 +36,11 @@ footer {
   width: 100%;
   margin-top: auto;
   flex-shrink: 0;
-  // position: fixed;
-  // bottom: 0;
-  // left: 0;
+}
+
+footer a:hover {
+  color: #fdcb58;
+  text-decoration: underline;
 }
 
 h6 {
@@ -145,27 +156,124 @@ button {
   // font-size: 15px;
 }
 
-.categories li {
-  font-size: 1.2em;
-  margin-right: 3%;
-  // padding: 0 9px;
-  // border: 1px solid white;
-  // border-radius: 50px;
-}
+// a {
+//   color: #fff;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   letter-spacing: 0.15em;
 
-.categories li:hover {
-  border-bottom: 2px solid white;
-  // background-color: white;
-  // color: #292a33;
-}
-
-// .categories a:hover {
-//   color: #292a33;
+//   display: inline-block;
+//   padding: 15px 20px;
+//   position: relative;
 // }
+// a:after {
+//   background: none repeat scroll 0 0 transparent;
+//   bottom: 0;
+//   content: "";
+//   display: block;
+//   height: 2px;
+//   left: 50%;
+//   position: absolute;
+//   background: #fff;
+//   transition: width 0.3s ease 0s, left 0.3s ease 0s;
+//   width: 0;
+// }
+// a:hover:after {
+//   width: 100%;
+//   left: 0;
+// }
+.categories li {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  /* display: inline-block; */
+  padding: 15px 20px;
+  position: relative;
+}
+
+.categories li:after {
+  // background: none repeat scroll 0 0 transparent;
+  bottom: 5px;
+  content: "";
+  // display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  width: 0;
+}
+
+.categories li:hover:after {
+  border-bottom: 0.3px solid white;
+  // transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 100%;
+  left: 0;
+}
 
 a {
   text-decoration: none;
   color: white;
+  transition: ease-in-out 0.3s;
+}
+
+button {
+  transition: ease-in-out 0.3s;
+}
+
+//Hannahs Styles:
+// index view:
+.hero-image {
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  //   url("/images/hero-image.jpg");
+  background-image: url("/images/hero-image.jpg");
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+}
+
+.hero-text {
+  text-align: center;
+  padding: 3%;
+  color: whitesmoke;
+}
+.hero-text h1 {
+  font-family: Dancing Script;
+  font-size: 120px;
+  font-weight: 900;
+  margin: 1%;
+  letter-spacing: 0.2em;
+}
+.hero-text h2 {
+  font-family: Philosopher;
+  font-size: 40px;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+.intro-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.intro-text p {
+  font-size: 1.7em;
+  line-height: 2.2;
+  margin: 5% 20%;
+  text-align: center;
+  font-weight: lighter;
+}
+.random-products {
+  border-top: 1px solid white;
+  margin: 2em 3em;
+}
+
+.random-products-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2.8em;
 }
 
 /*# sourceMappingURL=style.css.map */
@@ -190,6 +298,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
 .about-me h1 {
   font-size: 50px;
@@ -221,7 +330,7 @@ a {
   padding: 0.3em 2em;
   border-radius: 50px;
   text-align: center;
-  width: 70%;
+  width: 250px;
 }
 
 .edit-profile-btn:hover {
@@ -245,26 +354,37 @@ a {
   max-width: 1024px;
   margin: 0 auto;
   padding: 22px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
 }
 
 .product-item {
   max-height: 100%;
-  // box-shadow: 0px 5px 10px rgba(138, 136, 136, 0.74);
   background-color: #292a33;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
+}
+
+.product-item .product-img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .product-item:hover {
-  border: 0.5px solid #7d7c80a1;
+  // border: 0.5px solid #7d7c80a1;
+  box-shadow: 5px 3px 20px rgba(0, 0, 0, 0.74);
+  transition: ease-in-out 0.5s;
 }
 
-.product-img {
+.image-container .product-img {
   width: 100%;
   margin: 0;
+  // min-height: 300px;
 }
 
 .card-bottom-content {
@@ -292,14 +412,12 @@ a {
 .links {
   display: flex;
   justify-content: space-between;
+  margin-top: 2em;
 }
 
-.edit-product-btn:hover {
-  background-color: white;
-  color: #292a33;
-}
-
-.delete-product-btn:hover {
+.edit-product-btn:hover,
+.delete-product-btn:hover,
+.filter-product-btn:hover {
   background-color: white;
   color: #292a33;
 }
@@ -336,14 +454,9 @@ a {
   padding: 3%;
 }
 
-.artist-profile-wrapper h2 {
-  text-align: center;
-}
-
-.signup-wrapper h2 {
-  text-align: center;
-}
-
+.artist-profile-wrapper h2,
+.add-product-wrapper h2,
+.signup-wrapper h2,
 .login-wrapper h2 {
   text-align: center;
 }
@@ -530,18 +643,9 @@ a {
   margin-top: 15px;
 }
 
-.save-changes-btn:hover {
-  background-color: #ee653b;
-}
-
-.add-product-btn:hover {
-  background-color: #ee653b;
-}
-
-.create-profile-btn:hover {
-  background-color: #ee653b;
-}
-
+.save-changes-btn:hover,
+.add-product-btn:hover,
+.create-profile-btn:hover,
 .login-btn:hover {
   background-color: #ee653b;
 }
@@ -588,21 +692,20 @@ a {
 
 //category view styling
 .filter-product-btn {
-  background-color: #f5a288;
+  background-color: #43977c;
   color: white;
   font-size: 0.9em;
   font-weight: 500;
   padding: 0.3em 1em;
   border-radius: 50px;
   text-align: center;
-  width: 80%;
   border: none;
   margin-top: 8px;
 }
 
-.filter-product-btn:hover {
-  background-color: #ee653b;
-}
+// .filter-product-btn:hover {
+//   background-color: #ee653b;
+// }
 
 .filter-title {
   font-size: 1em;
@@ -623,14 +726,16 @@ a {
 }
 
 .filter {
-  margin-bottom: 2em;
-  margin-top: 0.5em;
-  margin-left: 1em;
+  // margin-bottom: 2em;
+  // margin-top: 0.5em;
+  // margin-left: 1em;
+  margin: 0.5em 1em;
 }
 
 .filters-container {
   border-radius: 8px;
   background-color: #292a33;
+  padding: 0.5em 1em 1.7em;
 }
 .product-name {
   margin-top: 0.1em;
@@ -660,71 +765,6 @@ a {
   margin: 1.2em 3em 0.3em 3em;
 }
 
-//Hannahs Styles:
-// index view:
-.hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/images/hero-image.jpg");
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  margin: 0;
-}
-
-// Poiret One:
-@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
-
-// Dancing Script:
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
-
-// Philosopher:
-@import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
-
-.hero-text {
-  text-align: center;
-  padding: 3%;
-  color: whitesmoke;
-}
-.hero-text h1 {
-  font-family: Dancing Script;
-  font-size: 120px;
-  font-weight: 900;
-  margin: 1%;
-  letter-spacing: 0.2em;
-}
-.hero-text h2 {
-  font-family: Philosopher;
-  font-size: 40px;
-  letter-spacing: 0.2em;
-  line-height: 1.5;
-}
-.intro-text {
-  display: flex;
-  // height: 400px;
-  // width: 60%;
-  justify-content: center;
-  align-items: center;
-}
-.intro-text p {
-  font-size: 30px;
-  // letter-spacing: 0.05em;
-  line-height: 2.2;
-  // padding: 0.6em 1.4em 0.5em 0.8em;
-  margin: 0 20%;
-  text-align: center;
-}
-.random-products {
-  border-top: 1px solid white;
-  margin: 2em 3em;
-}
-.random-products-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 2em;
-  margin-bottom: 1em;
-}
 .account-message {
   text-align: center;
 }
@@ -757,11 +797,13 @@ a {
 
 .image-container {
   width: 50%;
+  object-fit: contain;
 }
 
 .image-container img {
   width: 100%;
-  height: 100%;
+  // height: 100%;
+  // max-height: 300px;
 }
 
 .heading {
@@ -831,3 +873,9 @@ a {
   justify-content: space-between;
   height: 100%;
 }
+
+//media queries
+
+// @media (max-width: 600px) {
+
+// }

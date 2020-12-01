@@ -1,7 +1,7 @@
 <section class="add-product-wrapper">
+  <h2>Edit Product:</h2>
 
   {{#with selectedProduct}}
-  <h2>Edit Product:</h2>
 
   <form class="add-product-form" action="/edit/{{_id}}/product" method="POST" enctype="multipart/form-data">
     <div class="product-name">
@@ -14,11 +14,10 @@
       {{/with}}
     </div>
 
-    <div class="product-availability">
-      <label for="availability">Availability:</label>
-      <select class="select-css" name="availability" id="availability">
-        {{{availabilityOptions}}}
-      </select>
+    <div class="product-description">
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" cols="30" rows="8"
+        placeholder="Describe your product/service here">{{description}}</textarea>
     </div>
 
     <div class="product-category">
@@ -28,18 +27,20 @@
       </select>
     </div>
 
-    {{#with selectedProduct}}
-
-    <div class="product-description">
-      <label for="description">Description:</label>
-      <textarea name="description" id="description" cols="30" rows="8"
-        placeholder="Describe your product/service here">{{description}}</textarea>
+    <div class="product-availability">
+      <label for="availability">Availability:</label>
+      <select class="select-css" name="availability" id="availability">
+        {{{availabilityOptions}}}
+      </select>
     </div>
 
     <div class="add-productimg">
       <label for="images">Add images:</label>
       <input type="file" multiple='multiple' name="images" id="images" value={{images}} />
     </div>
+
+
+    {{#with selectedProduct}}
 
 
     <button class="add-product-btn" type="submit">Save changes</button>

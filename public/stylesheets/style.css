@@ -27,6 +27,10 @@ footer {
   margin-top: auto;
   flex-shrink: 0; }
 
+footer a:hover {
+  color: #fdcb58;
+  text-decoration: underline; }
+
 h6 {
   margin: 0; }
 
@@ -115,15 +119,83 @@ button {
   margin: 3% 0 1.5%; }
 
 .categories li {
-  font-size: 1.2em;
-  margin-right: 3%; }
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  /* display: inline-block; */
+  padding: 15px 20px;
+  position: relative; }
 
-.categories li:hover {
-  border-bottom: 2px solid white; }
+.categories li:after {
+  bottom: 5px;
+  content: "";
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  width: 0; }
+
+.categories li:hover:after {
+  border-bottom: 0.3px solid white;
+  width: 100%;
+  left: 0; }
 
 a {
   text-decoration: none;
-  color: white; }
+  color: white;
+  transition: ease-in-out 0.3s; }
+
+button {
+  transition: ease-in-out 0.3s; }
+
+.hero-image {
+  background-image: url("/images/hero-image.jpg");
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0; }
+
+.hero-text {
+  text-align: center;
+  padding: 3%;
+  color: whitesmoke; }
+
+.hero-text h1 {
+  font-family: Dancing Script;
+  font-size: 120px;
+  font-weight: 900;
+  margin: 1%;
+  letter-spacing: 0.2em; }
+
+.hero-text h2 {
+  font-family: Philosopher;
+  font-size: 40px;
+  letter-spacing: 0.1em;
+  line-height: 1.5; }
+
+.intro-text {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.intro-text p {
+  font-size: 1.7em;
+  line-height: 2.2;
+  margin: 5% 20%;
+  text-align: center;
+  font-weight: lighter; }
+
+.random-products {
+  border-top: 1px solid white;
+  margin: 2em 3em; }
+
+.random-products-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2.8em; }
 
 /*# sourceMappingURL=style.css.map */
 .artist-profile {
@@ -142,7 +214,8 @@ a {
   margin-left: 6vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  width: 100%; }
 
 .about-me h1 {
   font-size: 50px;
@@ -170,7 +243,7 @@ a {
   padding: 0.3em 2em;
   border-radius: 50px;
   text-align: center;
-  width: 70%; }
+  width: 250px; }
 
 .edit-profile-btn:hover {
   background-color: #ee653b; }
@@ -189,7 +262,8 @@ a {
   max-width: 1024px;
   margin: 0 auto;
   padding: 22px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px)); }
 
 .product-item {
   max-height: 100%;
@@ -197,12 +271,19 @@ a {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  height: 100%; }
+
+.product-item .product-img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px; }
 
 .product-item:hover {
-  border: 0.5px solid #7d7c80a1; }
+  box-shadow: 5px 3px 20px rgba(0, 0, 0, 0.74);
+  transition: ease-in-out 0.5s; }
 
-.product-img {
+.image-container .product-img {
   width: 100%;
   margin: 0; }
 
@@ -227,13 +308,12 @@ a {
 
 .links {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 2em; }
 
-.edit-product-btn:hover {
-  background-color: white;
-  color: #292a33; }
-
-.delete-product-btn:hover {
+.edit-product-btn:hover,
+.delete-product-btn:hover,
+.filter-product-btn:hover {
   background-color: white;
   color: #292a33; }
 
@@ -264,12 +344,9 @@ a {
 .signup-wrapper {
   padding: 3%; }
 
-.artist-profile-wrapper h2 {
-  text-align: center; }
-
-.signup-wrapper h2 {
-  text-align: center; }
-
+.artist-profile-wrapper h2,
+.add-product-wrapper h2,
+.signup-wrapper h2,
 .login-wrapper h2 {
   text-align: center; }
 
@@ -435,15 +512,9 @@ a {
   border: none;
   margin-top: 15px; }
 
-.save-changes-btn:hover {
-  background-color: #ee653b; }
-
-.add-product-btn:hover {
-  background-color: #ee653b; }
-
-.create-profile-btn:hover {
-  background-color: #ee653b; }
-
+.save-changes-btn:hover,
+.add-product-btn:hover,
+.create-profile-btn:hover,
 .login-btn:hover {
   background-color: #ee653b; }
 
@@ -479,19 +550,15 @@ a {
   font-weight: normal; }
 
 .filter-product-btn {
-  background-color: #f5a288;
+  background-color: #43977c;
   color: white;
   font-size: 0.9em;
   font-weight: 500;
   padding: 0.3em 1em;
   border-radius: 50px;
   text-align: center;
-  width: 80%;
   border: none;
   margin-top: 8px; }
-
-.filter-product-btn:hover {
-  background-color: #ee653b; }
 
 .filter-title {
   font-size: 1em;
@@ -509,13 +576,12 @@ a {
   margin: 0; }
 
 .filter {
-  margin-bottom: 2em;
-  margin-top: 0.5em;
-  margin-left: 1em; }
+  margin: 0.5em 1em; }
 
 .filters-container {
   border-radius: 8px;
-  background-color: #292a33; }
+  background-color: #292a33;
+  padding: 0.5em 1em 1.7em; }
 
 .product-name {
   margin-top: 0.1em;
@@ -540,54 +606,6 @@ a {
   font-size: 2.5em;
   margin: 1.2em 3em 0.3em 3em; }
 
-.hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/hero-image.jpg");
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  margin: 0; }
-
-.hero-text {
-  text-align: center;
-  padding: 3%;
-  color: whitesmoke; }
-
-.hero-text h1 {
-  font-family: Dancing Script;
-  font-size: 120px;
-  font-weight: 900;
-  margin: 1%;
-  letter-spacing: 0.2em; }
-
-.hero-text h2 {
-  font-family: Philosopher;
-  font-size: 40px;
-  letter-spacing: 0.2em;
-  line-height: 1.5; }
-
-.intro-text {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.intro-text p {
-  font-size: 30px;
-  line-height: 2.2;
-  margin: 0 20%;
-  text-align: center; }
-
-.random-products {
-  border-top: 1px solid white;
-  margin: 2em 3em; }
-
-.random-products-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 2em;
-  margin-bottom: 1em; }
-
 .account-message {
   text-align: center; }
 
@@ -610,11 +628,11 @@ a {
   padding: 3%; }
 
 .image-container {
-  width: 50%; }
+  width: 50%;
+  object-fit: contain; }
 
 .image-container img {
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
 
 .heading {
   display: flex;

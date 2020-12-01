@@ -32,24 +32,24 @@
 
 </div> --}}
 
-<div class="grid-container">
+    <div class="grid-container">
 
-    {{#each searchedProducts}}
+        {{#each searchedProducts}}
         <a href="/show/{{_id}}/product">
             <div class="product-item">
-                <div class="image-container">
-                    <img class="product-img" src={{images.[0]}} alt="product-image">
-                </div>
+                {{!-- <div class="image-container"> --}}
+                <img class="product-img" src={{images.[0]}} alt="product-image">
+                {{!-- </div> --}}
                 <div class="card-bottom-content">
                     <span class="product-name">{{name}}</span>
-                        <span class="product-price">{{ price }}€</span>
-                        {{#each owner }}
-                            <p class="product-owner">by {{ name }}</p>
-                        {{/each}}
-                        <p class="product-availability">{{ availability }}</p>
+                    <span class="product-price">{{ price }}€</span>
+                    {{#each owner }}
+                    <p class="product-owner">by {{ name }}</p>
+                    {{/each}}
+                    <p class="product-availability">{{ availability }}</p>
                 </div>
             </div>
         </a>
-    {{/each}}
+        {{/each}}
 
-</div>
+    </div>

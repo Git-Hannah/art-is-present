@@ -17,13 +17,6 @@
       <textarea name="description" id="description" cols="30" rows="8"
         placeholder="Describe your product/service here">{{#if description}}{{description}}{{/if}}</textarea>
     </div>
-    <div class="product-availability">
-      <label for="availability">Availability:</label>
-      <select class="select-css" name="availability" id="availability">
-        <option value="available">available</option>
-        <option value="currently unavailable" selected>currently unavailable</option>
-      </select>
-    </div>
 
     <div class="product-category">
       <label for="category">Category:</label>
@@ -35,6 +28,15 @@
         <option value="Music">Music</option>
       </select>
     </div>
+
+    <div class="product-availability">
+      <label for="availability">Availability:</label>
+      <select class="select-css" name="availability" id="availability">
+        <option value="available">available</option>
+        <option value="currently unavailable" selected>currently unavailable</option>
+      </select>
+    </div>
+
 
     <div class="add-productimg">
       <label for="images">Add images:</label>

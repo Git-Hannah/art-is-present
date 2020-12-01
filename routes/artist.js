@@ -16,7 +16,7 @@ router.get("/show/:artistId", (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
   Artist.findById(req.params.artistId).then((artistFromDB) => {
     const artist = artistFromDB;
-    console.log(artist, "artist");
+    // console.log(artist, "artist");
     Product.find({ owner: { $in: artist._id } })
       .then((productList) => {
         const isArtist = req.session.passport.user === artist._id;
@@ -38,18 +38,19 @@ router.get("/show/", (req, res, next) => {
   Artist.findById(req.session.passport.user).then((artist) => {
     Product.find({ owner: { $in: req.session.passport.user } })
 
-    .then((productList) => {
-      const isArtist= req.session.passport.user==artist._id;
+      .then((productList) => {
+        const isArtist = req.session.passport.user == artist._id;
         const user = req.session.passport
           ? req.session.passport.user
           : undefined;
-        console.log("productList", productList);
+        // console.log("productList", productList);
         res.render("artist/show", {
           productList,
           artist,
           isArtist,
-          user
+          user,
         });
+        console.log("-----------isasrtist", isArtist);
       })
       .catch((err) => {
         console.log("error from artist profile", err);
@@ -117,8 +118,8 @@ router.post("/add", uploadCloud.single("avatar"), (req, res, next) => {
   const user = req.session.passport ? req.session.passport.user : undefined;
   const { name, city, country, about } = req.body;
   // console.log(req.file.path);
-  console.log("req.body", req.body);
-  console.log("-------------id", req.session.passport.user);
+  // console.log("req.body", req.body);
+  // console.log("-------------id", req.session.passport.user);
 
   const avatar = req.file ? req.file.path : "";
   // { $set: { <field1>: <value1>, ... } }
